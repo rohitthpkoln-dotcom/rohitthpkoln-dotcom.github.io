@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Basics of Replica Theory",
+    "date": "2026-05-07",
+    "excerpt": "From quenched disorder to Bayesian conditioning, with replica limits, Nishimori-line symmetries, and gauge interpretations.",
+    "tags": [
+      "replica theory",
+      "statistical mechanics",
+      "Bayesian inference"
+    ],
+    "href": "./posts/basics-of-replica-theory/",
+    "slug": "basics-of-replica-theory"
+  }
+]
