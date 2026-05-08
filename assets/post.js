@@ -6,6 +6,13 @@ const tagNode = document.querySelector("[data-post-tags]");
 const tocNode = document.querySelector("[data-post-toc]");
 
 const FRONTMATTER_PATTERN = /^---\s*\n([\s\S]*?)\n---\s*\n?/;
+const HTML_ESCAPE_LOOKUP = {
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': "&quot;",
+  "'": "&#39;",
+};
 
 const slugify = (value) =>
   value
@@ -14,6 +21,8 @@ const slugify = (value) =>
     .replace(/[^\w\s-]/g, "")
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-");
+
+const escapeHtml = (value) => value.replace(/[&<>"']/g, (character) => HTML_ESCAPE_LOOKUP[character]);
 
 const extractFrontmatter = (rawText) => {
   const match = rawText.match(FRONTMATTER_PATTERN);
@@ -42,28 +51,35 @@ const extractFrontmatter = (rawText) => {
   };
 };
 
-const shieldBlocks = (rawText) => {
+const protectMarkdown = (rawText) => {
   const tokens = [];
   let text = rawText;
 
-  const stash = (pattern, label) => {
+  const stash = (pattern, label, kind) => {
     text = text.replace(pattern, (match) => {
       const token = `@@${label}_${tokens.length}@@`;
-      tokens.push({ token, match });
+      tokens.push({ token, match, kind });
       return token;
     });
   };
 
-  stash(/```[\s\S]*?```/g, "CODE");
-  stash(/`[^`\n]+`/g, "INLINE");
-  stash(/\$\$[\s\S]*?\$\$/g, "DISPLAY");
-  stash(/\\\[[\s\S]*?\\\]/g, "DISPLAY");
-  stash(/\\\([\s\S]*?\\\)/g, "INLINE_MATH");
+  stash(/```[\s\S]*?```/g, "CODE_BLOCK", "code");
+  stash(/`[^`\n]+`/g, "INLINE_CODE", "code");
+  stash(/\$\$[\s\S]*?\$\$/g, "MATH_BLOCK", "math");
+  stash(/\\\[[\s\S]*?\\\]/g, "MATH_BLOCK", "math");
+  stash(/\\\([\s\S]*?\\\)/g, "MATH_INLINE", "math");
+
+  const markdown = tokens
+    .filter((item) => item.kind === "code")
+    .reduce((output, item) => output.replace(item.token, item.match), text);
 
   return {
-    text,
-    restore(rendered) {
-      return tokens.reduce((output, item) => output.replace(item.token, item.match), rendered);
+    markdown,
+    restoreMath(rendered) {
+      const unwrapped = rendered.replace(/<p>\s*(@@MATH_BLOCK_\d+@@)\s*<\/p>/g, "$1");
+      return tokens
+        .filter((item) => item.kind === "math")
+        .reduce((output, item) => output.replace(item.token, escapeHtml(item.match)), unwrapped);
     },
   };
 };
@@ -77,11 +93,11 @@ const formatDate = (value) => {
 };
 
 const waitForMathJax = async () => {
-  for (let attempt = 0; attempt < 40; attempt += 1) {
+  for (let attempt = 0; attempt < 120; attempt += 1) {
     if (window.MathJax?.typesetPromise) {
       return true;
     }
-    await new Promise((resolve) => window.setTimeout(resolve, 150));
+    await new Promise((resolve) => window.setTimeout(resolve, 250));
   }
   return false;
 };
@@ -143,8 +159,8 @@ const renderPost = async () => {
 
     const rawText = await response.text();
     const { metadata, body } = extractFrontmatter(rawText);
-    const shielded = shieldBlocks(body);
-    const rendered = window.marked.parse(shielded.text);
+    const protectedMarkdown = protectMarkdown(body);
+    const rendered = window.marked.parse(protectedMarkdown.markdown);
 
     document.title = `${metadata.title || "Untitled note"} | Rohit's Notebook`;
 
@@ -160,7 +176,7 @@ const renderPost = async () => {
 
     renderTags(metadata.tags || []);
 
-    bodyNode.innerHTML = shielded.restore(rendered);
+    bodyNode.innerHTML = protectedMarkdown.restoreMath(rendered);
     buildToc();
 
     if (await waitForMathJax()) {
