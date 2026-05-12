@@ -2,7 +2,7 @@
   {
     "title": "Rokhsar-Kivelson States, Noisy Ising Measurements, and Mixedness",
     "date": "2026-05-12",
-    "excerpt": "A self-contained Ising note on RK states, diagonal noisy bond measurements, conditioned pure trajectories, and the exact mixed-state decoherence kernel.",
+    "excerpt": "A detailed Ising note deriving the RK wavefunction, the Bayesian posterior under noisy bond measurements, the exact outcome-averaged mixed state, and the first-moment identity.",
     "tags": [
       "RK states",
       "Ising model",
