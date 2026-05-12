@@ -1,0 +1,442 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  citecolor=blue!50!black,
+  urlcolor=blue!50!black,
+  pdftitle={Rokhsar-Kivelson States, Noisy Ising Measurements, and Mixedness},
+  pdfauthor={OpenAI Codex}
+}
+
+\newcommand{\ket}[1]{\lvert #1\rangle}
+\newcommand{\bra}[1]{\langle #1\rvert}
+\newcommand{\braket}[2]{\langle #1 \mid #2\rangle}
+\newcommand{\avg}[1]{\left\langle #1 \right\rangle}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\newcommand{\cO}{\mathcal O}
+\newcommand{\cK}{\mathcal K}
+\newcommand{\cH}{\mathcal H}
+\newcommand{\sech}{\operatorname{sech}}
+\DeclareMathOperator{\Tr}{Tr}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+
+\title{\textbf{Rokhsar-Kivelson States, Noisy Ising Measurements, and Mixedness}\\
+\large A self-contained note for the two-dimensional Ising case}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This note gives a self-contained derivation of the basic facts about Rokhsar-Kivelson (RK) states for the classical Ising model and explains, in precise terms, where \emph{mixedness} enters in monitored or Bayesian formulations of the problem. We focus on diagonal bond-energy measurements of the Ising RK state. The central points are the following. First, an RK state is a pure quantum state whose squared amplitudes reproduce the classical Gibbs ensemble. Second, a noisy but efficient measurement produces a \emph{pure conditioned trajectory state} for each measurement record. Third, the \emph{outcome-averaged} state is generally mixed, and for binary weak bond measurements its decoherence kernel can be computed exactly: each off-diagonal matrix element is suppressed by a factor $\sech(\tilde\gamma)$ for every bond on which the two classical configurations disagree. Finally, for observables diagonal in the Ising basis, the measurement-averaged first moment is exactly equal to the corresponding expectation value in the unmeasured RK state, while higher moments require replica methods and, in special circumstances, Nishimori-type identities.
+\end{abstract}
+
+\section{Introduction}
+
+Rokhsar-Kivelson (RK) states provide a precise bridge between classical statistical mechanics and quantum many-body states. In the present context this bridge is especially useful because measurements that are diagonal in the classical configuration basis admit both a quantum interpretation, in terms of Kraus operators acting on the RK state, and a classical interpretation, in terms of Bayesian conditioning of a Gibbs ensemble. The Ising case is the cleanest setting in which to separate three distinct notions:
+\begin{enumerate}[label=\arabic*.]
+  \item the \emph{pure} RK wavefunction;
+  \item the \emph{conditioned post-measurement state} for a fixed measurement record;
+  \item the \emph{outcome-averaged state}, which is generically mixed.
+\end{enumerate}
+
+These objects are often discussed together, but they are not the same. The main purpose of this note is to present their relation explicitly and to make clear why ``noisy measurement'' does \emph{not} by itself imply a mixed conditioned state, while averaging over the noisy outcomes does.
+
+\section{Classical Ising Model and Its RK State}
+
+Consider the classical Ising model on a square lattice with spins $\sigma_i=\pm1$ and Hamiltonian
+\begin{equation}
+H[\sigma] = - J \sum_{\langle ij\rangle} \sigma_i \sigma_j.
+\label{eq:ising-hamiltonian}
+\end{equation}
+For most of what follows one may set $J=1$, but it is useful to keep $J$ explicit for a moment. The corresponding classical Gibbs distribution at inverse temperature $\beta$ is
+\begin{equation}
+P_\beta(\sigma)=\frac{e^{-\beta H[\sigma]}}{Z(\beta)},
+\qquad
+Z(\beta)=\sum_{\{\sigma_i=\pm1\}} e^{-\beta H[\sigma]}.
+\label{eq:classical-gibbs}
+\end{equation}
+
+The associated RK state is the pure quantum state
+\begin{equation}
+\ket{\mathrm{RK}_\beta}
+=
+\frac{1}{\sqrt{Z(\beta)}}\sum_{\sigma}
+e^{-\beta H[\sigma]/2}\ket{\sigma}.
+\label{eq:rk-state}
+\end{equation}
+Here $\ket{\sigma}$ denotes the computational basis state labeled by the full Ising configuration $\sigma=\{\sigma_i\}$.
+
+The most basic property of \eqref{eq:rk-state} is
+\begin{equation}
+\bigl|\braket{\sigma}{\mathrm{RK}_\beta}\bigr|^2
+=
+\frac{e^{-\beta H[\sigma]}}{Z(\beta)}
+=P_\beta(\sigma).
+\label{eq:rk-born}
+\end{equation}
+Therefore the diagonal equal-time observables of the RK state are exactly the thermal observables of the classical Ising model. If $\hat O$ is diagonal in the computational basis,
+\begin{equation}
+\hat O \ket{\sigma}= O(\sigma)\ket{\sigma},
+\end{equation}
+then
+\begin{equation}
+\avg{\hat O}_{\mathrm{RK}_\beta}
+=
+\bra{\mathrm{RK}_\beta}\hat O\ket{\mathrm{RK}_\beta}
+=
+\frac{1}{Z(\beta)}\sum_\sigma O(\sigma)e^{-\beta H[\sigma]}.
+\label{eq:diagonal-thermal}
+\end{equation}
+In particular, the diagonal sector of the pure quantum state reproduces the full classical Gibbs ensemble.
+
+\section{Noisy Bond-Energy Measurements}
+
+We now measure the bond-energy operators
+\begin{equation}
+\hat B_{ij} = \hat\sigma_i^z \hat\sigma_j^z,
+\qquad
+\hat B_{ij}\ket{\sigma} = (\sigma_i\sigma_j)\ket{\sigma}.
+\end{equation}
+Following the measurement protocol used in the recent higher-Nishimori analysis for the Ising RK state, introduce binary outcomes $m_{ij}=\pm1$ and define the Kraus operator
+\begin{equation}
+K_{\bm m}
+=
+\frac{1}{(2\cosh\tilde\gamma)^{N_b/2}}
+\exp\!\left[
+\frac{\tilde\gamma}{2}\sum_{\langle ij\rangle} m_{ij}\hat B_{ij}
+\right].
+\label{eq:binary-kraus}
+\end{equation}
+Here $N_b$ is the number of bonds and $\tilde\gamma\ge 0$ is the measurement strength. Since all $\hat B_{ij}$ are diagonal in the $\ket{\sigma}$ basis, the Kraus operators are diagonal as well.
+
+It is convenient to define
+\begin{equation}
+\gamma = \tanh\tilde\gamma.
+\label{eq:gamma-def}
+\end{equation}
+Then one may check directly that the conditional probability of obtaining record $\bm m$ given a definite classical configuration $\sigma$ is
+\begin{equation}
+P(\bm m \mid \sigma)
+=
+\bra{\sigma} K_{\bm m}^\dagger K_{\bm m}\ket{\sigma}
+=
+\prod_{\langle ij\rangle}
+\frac{1+\gamma\, m_{ij}\sigma_i\sigma_j}{2}.
+\label{eq:binary-likelihood}
+\end{equation}
+Thus the measurement is \emph{noisy}: even if the bond variable $\sigma_i\sigma_j$ is fixed, the outcome $m_{ij}$ is only correlated with it, not equal to it with certainty unless $\tilde\gamma\to\infty$.
+
+\section{Conditioned Trajectories Remain Pure}
+
+Let the initial state be the pure RK state \eqref{eq:rk-state}. For a fixed observed record $\bm m$, the post-measurement state is
+\begin{equation}
+\ket{\Psi_{\bm m}}
+=
+\frac{K_{\bm m}\ket{\mathrm{RK}_\beta}}{\sqrt{p(\bm m)}},
+\qquad
+p(\bm m)=\bra{\mathrm{RK}_\beta}K_{\bm m}^\dagger K_{\bm m}\ket{\mathrm{RK}_\beta}.
+\label{eq:conditioned-state}
+\end{equation}
+Using \eqref{eq:rk-state} and \eqref{eq:binary-kraus},
+\begin{equation}
+\ket{\Psi_{\bm m}}
+\propto
+\sum_\sigma
+\exp\!\left[
+-\frac{\beta}{2}H[\sigma]
++ \frac{\tilde\gamma}{2}\sum_{\langle ij\rangle} m_{ij}\sigma_i\sigma_j
+\right]\ket{\sigma}.
+\label{eq:conditioned-pure}
+\end{equation}
+This is a pure state. The measurement may be weak and noisy, but as long as the full record $\bm m$ is known and the measurement is efficient, the conditioned state remains pure.
+
+The same formula admits an immediate classical Bayesian interpretation. The posterior probability of configuration $\sigma$ given $\bm m$ is
+\begin{equation}
+P(\sigma\mid \bm m)
+=
+\frac{
+e^{-\beta H[\sigma]+\tilde\gamma\sum_{\langle ij\rangle}m_{ij}\sigma_i\sigma_j}
+}{
+Z[\bm m]
+},
+\label{eq:posterior}
+\end{equation}
+with
+\begin{equation}
+Z[\bm m]
+=
+\sum_{\sigma}
+e^{-\beta H[\sigma]+\tilde\gamma\sum_{\langle ij\rangle}m_{ij}\sigma_i\sigma_j}.
+\label{eq:z-of-m}
+\end{equation}
+Equation \eqref{eq:posterior} can be read either as a classical posterior distribution or as the diagonal probability distribution of the pure conditioned quantum state \eqref{eq:conditioned-pure}. The equivalence between the two viewpoints is one of the main utilities of the RK construction.
+
+\section{Outcome Averaging Produces Mixedness}
+
+The state becomes mixed when the measurement record is discarded or averaged over. The unconditioned state is
+\begin{equation}
+\bar\rho
+=
+\sum_{\bm m} p(\bm m)\ket{\Psi_{\bm m}}\bra{\Psi_{\bm m}}
+=
+\sum_{\bm m} K_{\bm m}\ket{\mathrm{RK}_\beta}\bra{\mathrm{RK}_\beta}K_{\bm m}^\dagger.
+\label{eq:unconditioned-state}
+\end{equation}
+
+Because the Kraus operators are diagonal, this state can be evaluated explicitly in the computational basis. Writing
+\begin{equation}
+\psi_\beta(\sigma)
+=
+\frac{e^{-\beta H[\sigma]/2}}{\sqrt{Z(\beta)}},
+\end{equation}
+the matrix elements of the unconditioned state are
+\begin{equation}
+\bar\rho_{\sigma,\sigma'}
+=
+\psi_\beta(\sigma)\psi_\beta(\sigma')\,
+\Gamma_{\tilde\gamma}(\sigma,\sigma'),
+\label{eq:rho-bar-general}
+\end{equation}
+where
+\begin{equation}
+\Gamma_{\tilde\gamma}(\sigma,\sigma')
+:=
+\sum_{\bm m}
+\bra{\sigma}K_{\bm m}\ket{\sigma}
+\bra{\sigma'}K_{\bm m}\ket{\sigma'}.
+\label{eq:gamma-kernel-def}
+\end{equation}
+For the binary channel \eqref{eq:binary-kraus}, the sum factorizes bond by bond:
+\begin{align}
+\Gamma_{\tilde\gamma}(\sigma,\sigma')
+&=
+\prod_{\langle ij\rangle}
+\frac{1}{2\cosh\tilde\gamma}
+\sum_{m_{ij}=\pm1}
+\exp\!\left[
+\frac{\tilde\gamma}{2}m_{ij}
+\bigl(\sigma_i\sigma_j+\sigma_i'\sigma_j'\bigr)
+\right]
+\notag\\
+&=
+\prod_{\langle ij\rangle}
+\frac{\cosh\!\left[
+\frac{\tilde\gamma}{2}
+(\sigma_i\sigma_j+\sigma_i'\sigma_j')
+\right]}{\cosh\tilde\gamma}.
+\label{eq:gamma-kernel-step}
+\end{align}
+Since each bond variable is $\pm1$, the factor on a given bond is
+\begin{equation}
+\frac{\cosh\!\left[
+\frac{\tilde\gamma}{2}
+(\sigma_i\sigma_j+\sigma_i'\sigma_j')
+\right]}{\cosh\tilde\gamma}
+=
+\begin{cases}
+1, & \sigma_i\sigma_j = \sigma_i'\sigma_j',\\[4pt]
+\sech\tilde\gamma, & \sigma_i\sigma_j \neq \sigma_i'\sigma_j'.
+\end{cases}
+\label{eq:single-bond-factor}
+\end{equation}
+Therefore
+\begin{equation}
+\Gamma_{\tilde\gamma}(\sigma,\sigma')
+=
+\bigl(\sech\tilde\gamma\bigr)^{d_B(\sigma,\sigma')},
+\label{eq:exact-decoherence-kernel}
+\end{equation}
+where $d_B(\sigma,\sigma')$ is the number of bonds on which the two configurations have different bond energies:
+\begin{equation}
+d_B(\sigma,\sigma')
+:=
+\#\set{\langle ij\rangle: \sigma_i\sigma_j \neq \sigma_i'\sigma_j'}.
+\label{eq:bond-distance}
+\end{equation}
+
+Equation \eqref{eq:exact-decoherence-kernel} is the exact decoherence kernel of the unconditioned monitored RK state. It shows that:
+\begin{enumerate}[label=\arabic*.]
+  \item diagonal matrix elements are unchanged, since $\Gamma_{\tilde\gamma}(\sigma,\sigma)=1$;
+  \item off-diagonal matrix elements are suppressed exponentially in the bond-disagreement distance;
+  \item the stronger the measurement, the stronger the decoherence, since $\sech\tilde\gamma<1$ for $\tilde\gamma>0$.
+\end{enumerate}
+
+\begin{proposition}
+For any nontrivial measurement strength $\tilde\gamma>0$, the unconditioned state $\bar\rho$ is generically mixed unless the initial state is already supported on a common eigenspace of all measured bond operators.
+\end{proposition}
+
+\begin{proof}
+If $\tilde\gamma>0$, then $\sech\tilde\gamma<1$. Whenever there exist two basis configurations $\sigma,\sigma'$ with nonzero initial amplitudes and with $d_B(\sigma,\sigma')>0$, the corresponding off-diagonal matrix element is strictly reduced in magnitude by \eqref{eq:exact-decoherence-kernel}. Hence the channel is not unitary on the support of the state. A unitary channel maps pure states to pure states, whereas a nonunitary decohering channel generically does not. The exceptional case is when the initial state lives entirely inside a common eigenspace of all $\hat B_{ij}$, so that no off-diagonal coherence relevant to the measured operators is present to begin with.
+\end{proof}
+
+\section{Why the First Measurement-Averaged Moment is Clean}
+
+For observables diagonal in the Ising basis, the first measurement-averaged moment is exactly equal to the expectation value in the unmeasured RK state. This can be seen in either the quantum or the classical language.
+
+Let $\hat O$ be diagonal in the computational basis. Then
+\begin{align}
+\sum_{\bm m} p(\bm m)\,\avg{\hat O}_{\bm m}
+&=
+\sum_{\bm m}
+\Tr\!\left(
+\hat O\, K_{\bm m}\ket{\mathrm{RK}_\beta}\bra{\mathrm{RK}_\beta}K_{\bm m}^\dagger
+\right)
+\notag\\
+&=
+\Tr\!\left(
+\hat O\, \bar\rho
+\right).
+\label{eq:first-moment-rho-bar}
+\end{align}
+Now use the diagonality of both $\hat O$ and the Kraus operators. Since \eqref{eq:exact-decoherence-kernel} leaves the diagonal of $\rho$ unchanged,
+\begin{equation}
+\Tr(\hat O\,\bar\rho)
+=
+\Tr(\hat O\,\rho_{\mathrm{RK}_\beta})
+=
+\avg{\hat O}_{\mathrm{RK}_\beta}.
+\label{eq:first-moment-clean-quantum}
+\end{equation}
+Equivalently, in the classical Bayesian language,
+\begin{equation}
+\sum_{\bm m} P(\bm m)\,\avg{O}_{\bm m}
+=
+\frac{
+\sum_{\bm m}\sum_\sigma O(\sigma)e^{-\beta H[\sigma]}
+P(\bm m\mid \sigma)
+}{
+\sum_{\bm m}\sum_\sigma e^{-\beta H[\sigma]}P(\bm m\mid \sigma)
+}.
+\end{equation}
+Since $\sum_{\bm m}P(\bm m\mid \sigma)=1$, the outcome sum removes the conditioning and one obtains
+\begin{equation}
+\sum_{\bm m} P(\bm m)\,\avg{O}_{\bm m}
+=
+\frac{1}{Z(\beta)}\sum_\sigma O(\sigma)e^{-\beta H[\sigma]}.
+\label{eq:first-moment-clean-classical}
+\end{equation}
+
+\begin{remark}
+The equality of the first measurement-averaged moment with the unmeasured expectation value is \emph{not} a statement that the monitored state remains pure or critical. It is a statement about diagonal observables after averaging over outcomes. The purity properties of the state are controlled by \eqref{eq:unconditioned-state} and \eqref{eq:exact-decoherence-kernel}, not by \eqref{eq:first-moment-clean-quantum}.
+\end{remark}
+
+\section{Relation to the Higher Nishimori Line}
+
+The identity for the first moment above does not require any Nishimori condition. It follows solely from the completeness of the measurement channel together with diagonality in the Ising basis. The higher Nishimori line enters when one studies higher moments, especially the second moment of the spin-spin correlation function, by replica methods.
+
+For Gaussian bond measurements one introduces a continuous outcome $m_{ij}\in\mathbb{R}$ with likelihood
+\begin{equation}
+P(\bm m\mid \sigma)\propto
+\exp\!\left[
+-\frac{\Delta}{2}
+\sum_{\langle ij\rangle}
+\bigl(m_{ij}-\sigma_i\sigma_j\bigr)^2
+\right].
+\label{eq:gaussian-likelihood}
+\end{equation}
+After averaging over outcomes in a replicated description, the effective Hamiltonian takes the form
+\begin{equation}
+-\cH_{\mathrm{rep}}
+=
+\beta\sum_{a=1}^R\sum_{\langle ij\rangle}\sigma_i^{(a)}\sigma_j^{(a)}
++\frac{\Delta}{2}
+\sum_{\substack{a,b=1\\ a\neq b}}^R
+\sum_{\langle ij\rangle}
+\sigma_i^{(a)}\sigma_j^{(a)}\sigma_i^{(b)}\sigma_j^{(b)}.
+\label{eq:replica-hamiltonian}
+\end{equation}
+On the line
+\begin{equation}
+\beta=\Delta,
+\label{eq:higher-nishimori-line}
+\end{equation}
+this theory can be rewritten with one additional replica and an emergent local gauge redundancy, leading to the higher-Nishimori structure emphasized in \cite{Patil2026}. In the Gaussian Ising case, this structure implies a much stronger statement than \eqref{eq:first-moment-clean-classical}: on the higher Nishimori line, the second moment of the spin-spin correlator collapses to the same clean Ising correlator, so that at the higher Nishimori critical point
+\begin{equation}
+\bigl[\avg{\sigma_i\sigma_j}_{\bm m}^2\bigr]_{\bm m}
+=
+\bigl[\avg{\sigma_i\sigma_j}_{\bm m}\bigr]_{\bm m}
+=
+\avg{\sigma_i\sigma_j}_{\mathrm{clean}}.
+\label{eq:ea-clean}
+\end{equation}
+This is the mechanism behind the exact equality between the power-law exponent of the Edwards-Anderson correlator and that of the unmeasured Ising correlator in the higher-Nishimori analysis.
+
+\section{Efficient versus Inefficient Measurements}
+
+The discussion above assumed an efficient measurement, meaning that the full record $\bm m$ is observed. Then each conditioned trajectory state \eqref{eq:conditioned-state} is pure. There is a second, distinct route to mixedness: one may have \emph{hidden measurement noise}. In that case an observed coarse-grained outcome $m$ corresponds to several unresolved microscopic outcomes $\mu$, and the conditioned state becomes
+\begin{equation}
+\rho_m
+=
+\frac{\sum_\mu K_{m,\mu}\rho_0 K_{m,\mu}^\dagger}
+{\Tr\!\left(\sum_\mu K_{m,\mu}\rho_0 K_{m,\mu}^\dagger\right)}.
+\label{eq:inefficient-condition}
+\end{equation}
+This state can already be mixed even before one averages over the visible outcomes $m$. It is therefore important to distinguish:
+\begin{enumerate}[label=\arabic*.]
+  \item \emph{efficient noisy measurement}: conditioned state pure, unconditioned state mixed;
+  \item \emph{inefficient noisy measurement}: even the conditioned state may be mixed.
+\end{enumerate}
+
+\section{Summary}
+
+The Ising RK construction is best understood as a three-layered correspondence.
+\begin{enumerate}[label=\arabic*.]
+  \item The pure RK state encodes the classical Ising Gibbs ensemble in its diagonal probabilities.
+  \item Diagonal noisy bond measurements correspond to Bayesian conditioning of that Gibbs prior.
+  \item Mixedness appears when one averages over measurement records, or when part of the detector noise is unobserved.
+\end{enumerate}
+
+For the binary weak bond measurement channel, the monitored Ising RK state admits a particularly transparent exact formula:
+\begin{equation}
+\bar\rho_{\sigma,\sigma'}
+=
+\frac{e^{-\beta(H[\sigma]+H[\sigma'])/2}}{Z(\beta)}
+\bigl(\sech\tilde\gamma\bigr)^{d_B(\sigma,\sigma')}.
+\end{equation}
+This makes the physical content of the channel immediate. Diagonal probabilities are unchanged, but coherence between two classical configurations is suppressed in proportion to the number of bonds on which their predicted bond energies differ. This is the precise sense in which the \emph{outcome-averaged} monitored RK state is mixed.
+
+At the same time, diagonal first moments are protected by POVM completeness and remain equal to the unmeasured thermal expectation values. Higher moments are different: they probe the replicated theory and, in special situations such as the Gaussian higher Nishimori line, acquire additional exact structure not present in the generic monitored problem.
+
+\begin{thebibliography}{99}
+
+\bibitem{RokhsarKivelson1988}
+D. S. Rokhsar and S. A. Kivelson,
+``Superconductivity and the Quantum Hard-Core Dimer Gas,''
+\emph{Phys. Rev. Lett.} \textbf{61}, 2376--2379 (1988).
+\href{https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.61.2376}{doi:10.1103/PhysRevLett.61.2376}.
+
+\bibitem{Iba1999}
+Y. Iba,
+``The Nishimori line and Bayesian Statistics,''
+\emph{J. Phys. A: Math. Gen.} \textbf{32}, 3875--3888 (1999).
+\href{https://arxiv.org/abs/cond-mat/9809190}{arXiv:cond-mat/9809190}.
+
+\bibitem{NahumJacobsen2025}
+A. Nahum and J. L. Jacobsen,
+``Bayesian critical points in classical lattice models,''
+\href{https://arxiv.org/abs/2504.01264}{arXiv:2504.01264} (2025).
+
+\bibitem{Patil2026}
+R. A. Patil, M. P\"utz, S. Trebst, G.-Y. Zhu, and A. W. W. Ludwig,
+``Higher Nishimori Criticality and Exact Results at the Learning Transition of Deformed Toric Codes,''
+\href{https://arxiv.org/abs/2604.06324}{arXiv:2604.06324} (2026).
+
+\end{thebibliography}
+
+\end{document}

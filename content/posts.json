@@ -1,5 +1,19 @@
 [
   {
+    "title": "Rokhsar-Kivelson States, Noisy Ising Measurements, and Mixedness",
+    "date": "2026-05-12",
+    "excerpt": "A self-contained Ising note on RK states, diagonal noisy bond measurements, conditioned pure trajectories, and the exact mixed-state decoherence kernel.",
+    "tags": [
+      "RK states",
+      "Ising model",
+      "measurements",
+      "mixed states",
+      "Nishimori line"
+    ],
+    "href": "./posts/rk-ising-mixedness/",
+    "slug": "rk-ising-mixedness"
+  },
+  {
     "title": "Basics of Replica Theory",
     "date": "2026-05-07",
     "excerpt": "From quenched disorder to Bayesian conditioning, with replica limits, Nishimori-line symmetries, and gauge interpretations.",
