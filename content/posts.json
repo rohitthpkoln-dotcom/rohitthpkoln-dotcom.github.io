@@ -1,5 +1,18 @@
 [
   {
+    "title": "When Is a Measurement RG-Relevant?",
+    "date": "2026-05-17",
+    "excerpt": "A step-by-step guide to the R to 1 replica trick, the measurement Harris criterion, and the 2D Ising spin and energy examples.",
+    "tags": [
+      "replica theory",
+      "measurement",
+      "renormalization group",
+      "Ising CFT"
+    ],
+    "href": "./posts/when-is-measurement-rg-relevant/",
+    "slug": "when-is-measurement-rg-relevant"
+  },
+  {
     "title": "Rokhsar-Kivelson States, Noisy Ising Measurements, and Mixedness",
     "date": "2026-05-12",
     "excerpt": "A detailed Ising note deriving the RK wavefunction, the Bayesian posterior under noisy bond measurements, the exact outcome-averaged mixed state, and the first-moment identity.",
