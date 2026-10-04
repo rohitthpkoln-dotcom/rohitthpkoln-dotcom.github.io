@@ -32,6 +32,7 @@ PAGES = [
     ("teaching", "Teaching", "/teaching/", "Teaching"),
     ("conferences", "Conferences", "/conferences/", "Conferences &amp; Workshops"),
     ("notes", "Notes", "/notes/", "Notes"),
+    ("links", "Links", "/links/", "Links"),
 ]
 
 ICONS = {
@@ -297,6 +298,43 @@ def page_conferences(site: dict, data: dict) -> str:
     return layout(site, "conferences", "Conferences & Workshops", body)
 
 
+def page_links(site: dict, data: dict) -> str:
+    """Press, media, videos and other links: content/media.json."""
+    out = [intro(data.get("intro", ""))]
+    for section in data.get("sections", []):
+        items = section.get("items", [])
+        if not items:
+            continue
+        out.append(f'      <section class="section">\n        <h2>{section["heading"]}</h2>\n')
+        if section.get("kind") == "videos":
+            out.append('        <div class="video-grid">\n')
+            for v in items:
+                src = f'https://www.youtube-nocookie.com/embed/{esc(v["youtube"])}'
+                if v.get("start"):
+                    src += f'?start={int(v["start"])}'
+                caption = f'<figcaption>{v["caption"]}</figcaption>' if v.get("caption") else ""
+                watch = f'https://www.youtube.com/watch?v={esc(v["youtube"])}' + (f'&amp;t={int(v["start"])}s' if v.get("start") else "")
+                out.append(
+                    f'          <figure class="video">\n            <div class="video-frame"><iframe src="{src}" '
+                    f'title="{esc(v.get("title", "YouTube video"))}" loading="lazy" '
+                    f'allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" '
+                    f'referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>\n'
+                    f'            {caption}<p class="entry-links"><span><a href="{watch}">Watch on YouTube</a></span></p>\n          </figure>\n')
+            out.append('        </div>\n')
+        else:
+            rows = []
+            for it in items:
+                pill_html = pill(it.get("kind", ""))
+                meta = " &middot; ".join(x for x in [it.get("source", ""), it.get("date", "")] if x)
+                text = f'\n          <p class="entry-text">{it["text"]}</p>' if it.get("text") else ""
+                rows.append(f'        <li class="entry">\n          <p class="entry-title">{pill_html}{link(it["title"], it.get("url", ""))}</p>\n'
+                            f'          <p class="entry-meta">{meta}</p>{text}\n        </li>')
+            out.append('        <ul class="entries">\n' + "\n".join(rows) + '\n        </ul>\n')
+        out.append("      </section>\n")
+    body = banner(site, "links", "Links") + '    <main class="page">\n' + "".join(out) + "    </main>\n"
+    return layout(site, "links", "Links", body)
+
+
 def page_notes(site: dict, posts: list[dict], lectures: dict) -> str:
     lecture_rows = []
     for lec in lectures.get("lectures", []):
@@ -423,6 +461,7 @@ def main() -> None:
     write("teaching/index.html", page_teaching(site, load("teaching.json")))
     write("conferences/index.html", page_conferences(site, load("conferences.json")))
     write("notes/index.html", page_notes(site, posts, load("lectures.json")))
+    write("links/index.html", page_links(site, load("media.json")))
     for post in posts:
         write(f"posts/{post['slug']}/index.html", page_post(site, post))
 
