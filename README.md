@@ -38,16 +38,16 @@ Text fields may contain simple HTML (`<i>`, `<b>`, `<a href="...">`).
 
 ```json
 {"title": "Paper title", "authors": "With A. Author and B. Author.", "date": "March 2026.",
- "status": "Submitted.", "journal": "Phys. Rev. B 111, 012345 (2026)", "doi": "10.1103/...",
+ "status": "Submitted.", "note": "Featured in ...", "journal": "Phys. Rev. B 111, 012345 (2026)", "doi": "10.1103/...",
  "arxiv": "2603.01234", "category": "cond-mat.str-el", "links": [{"label": "Code", "href": "https://..."}]}
 ```
 
 `in_preparation` takes `{"title": "...", "with": "A. Author"}`.
 
-**Talk** (`talks.json`, grouped by year automatically):
+**Talk** (`talks.json`, grouped by year automatically; `role` shows as a label):
 
 ```json
-{"title": "Talk title", "sort": "2026-07", "date_text": "July 2026", "event": "Workshop name",
+{"title": "Talk title", "role": "Invited talk", "sort": "2026-07", "date_text": "July 2026", "event": "Workshop name",
  "event_url": "https://...", "place": "Cologne", "links": [{"label": "Slides", "href": "/assets/slides.pdf"}]}
 ```
 
@@ -58,17 +58,28 @@ Text fields may contain simple HTML (`<i>`, `<b>`, `<a href="...">`).
  "terms": [{"term": "Winter Term 2025/26", "courses": [{"title": "Course", "role": "Teaching assistant"}]}]}
 ```
 
-**Conference** (`conferences.json`, lists `upcoming` and `past`):
+**Conference** (`conferences.json`, lists `upcoming`, `past` and `visits`):
 
 ```json
 {"title": "Conference name", "url": "https://...", "date": "June 2026", "place": "Trieste", "role": "Speaker"}
 ```
 
+**Lecture note** (`content/lectures.json`; put the PDF in `assets/lectures/`):
+
+```json
+{"title": "Lecture title", "pdf": "/assets/lectures/file.pdf", "meta": "Lecture notes &middot; 12 pages",
+ "summary": "One or two sentences.", "tags": ["topic"]}
+```
+
+**Home-page lists** (`home_sections` in `site.json`) and **Teaching extras** (`extra` in
+`teaching.json`) take `{"heading": "...", "items": [{"text": "...", "when": "2025"}]}`.
+
 ## Photos
 
 Put images in `assets/img/` and set `"photo"` (home portrait) or a page key under
-`"banners"` in `content/site.json`, e.g. `"talks": "/assets/img/talks.jpg"`. Pages without a
-banner photo use a coloured gradient.
+`"banners"` in `content/site.json`, e.g. `"talks": "/assets/img/talks.jpg"`. A banner can also be
+`{"src": "/assets/img/talks.jpg", "position": "center 30%"}` to choose which part of the photo
+shows. Pages without a banner photo use a coloured gradient.
 
 ## New note
 

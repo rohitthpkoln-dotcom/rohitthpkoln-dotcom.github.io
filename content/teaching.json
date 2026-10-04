@@ -1,4 +1,22 @@
 {
   "intro": "",
-  "institutions": []
+  "institutions": [
+    {"name": "Cornell University",
+     "terms": [{"term": "Fall 2024", "courses": [{"title": "Advanced Electricity and Magnetism"}]}]},
+    {"name": "IIT Kanpur",
+     "terms": [
+       {"term": "Spring 2023", "courses": [{"title": "Introduction to Classical Mechanics"}]},
+       {"term": "Summer 2022", "courses": [{"title": "Introduction to Electrodynamics"}]},
+       {"term": "Fall 2020", "courses": [{"title": "Condensed Matter Physics (graduate course)"}]},
+       {"term": "Multiple terms", "courses": [{"title": "Graduate Experimental Physics Laboratory"}]}
+     ]}
+  ],
+  "extra": [
+    {"heading": "Mentoring",
+     "items": [
+       {"text": "Sidhartha Chatterjee, MSc thesis project<span class=\"fact-sub\">Now a graduate student at the University of Luxembourg</span>"},
+       {"text": "Ishita Agarwal, undergraduate research project<span class=\"fact-sub\">Now a graduate student at Purdue University</span>"},
+       {"text": "Nandita Mittal, undergraduate research project<span class=\"fact-sub\">Now an MS student at NUS</span>"}
+     ]}
+  ]
 }

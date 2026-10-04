@@ -1,5 +1,24 @@
 {
-  "intro": "A few of the conferences and workshops that I attended, or intend to attend.",
-  "upcoming": [],
-  "past": []
+  "intro": "Conferences, workshops and schools that I attended or will attend, and research visits.",
+  "upcoming": [
+    {"title": "Falling Walls Science Summit", "date": "2026", "place": "Berlin, Germany", "role": "Invited scientist"}
+  ],
+  "past": [
+    {"title": "Entanglement Dynamics, CRC Conference", "date": "June&ndash;July 2026", "place": "Nordita, Stockholm, Sweden"},
+    {"title": "CRC Fall Meeting: Entangled States of Matter", "date": "November 2025", "place": "Berlin, Germany"},
+    {"title": "Cornell Quantum Theory Retreat", "date": "September 2024", "place": "Cornell University, USA", "role": "Poster"},
+    {"title": "Cornell Quantum Day", "date": "July 2024", "place": "Cornell University, USA", "role": "Speaker"},
+    {"title": "Fulbright Enrichment Seminar, U.S. Department of State", "date": "March 2024", "place": "Salt Lake City, USA"},
+    {"title": "Young Investigators Meet on Quantum Condensed Matter Theory", "date": "November 2022", "place": "NISER, India", "role": "Poster"},
+    {"title": "Annual Conference on Quantum Condensed Matter", "date": "October 2022", "place": "IIT Kanpur, India", "role": "Speaker"},
+    {"title": "Focus Workshop on Band Topology in Quantum Magnets", "date": "2022", "place": "MPI for the Physics of Complex Systems, Dresden, Germany"},
+    {"title": "Strongly Correlated Matter: from Quantum Criticality to Flat Bands", "date": "2022", "place": "ICTP, Trieste, Italy", "role": "Poster"},
+    {"title": "Topological Aspects of Strong Correlations and Gauge Theories", "date": "2021", "place": "ICTS Bengaluru, India"},
+    {"title": "Bangalore School on Statistical Physics XI", "date": "2020", "place": "ICTS Bengaluru, India", "role": "School"}
+  ],
+  "visits": [
+    {"title": "Free University of Berlin", "date": "August 2026", "place": "Berlin, Germany", "role": "Visiting scientist"},
+    {"title": "University of California, Riverside", "date": "December 2023", "place": "Riverside, USA", "role": "Visiting scientist"},
+    {"title": "Fulbright Pre-Academic Training, University of North Carolina", "date": "July 2023", "place": "Charlotte, USA"}
+  ]
 }

@@ -1,0 +1,21 @@
+{
+  "intro": "",
+  "lectures": [
+    {"title": "Correlated Electrons and Quantum Magnetism", "pdf": "/assets/lectures/correlated_electrons_lecture.pdf",
+     "meta": "Lecture notes &middot; 12 pages",
+     "summary": "Hubbard model, Hartree&ndash;Fock theory for general magnetic order, spin waves in the ladder-sum approximation and the spin stiffness, Coulomb matrix elements, and the strong-coupling expansion to the Heisenberg model, <i>J</i> = 4<i>t</i><sup>2</sup>/<i>U</i>.",
+     "tags": ["Hubbard model", "spin waves", "quantum magnetism"]},
+    {"title": "Quantum Spin Liquids and the Projective Symmetry Group", "pdf": "/assets/lectures/spin_liquids_psg_lecture.pdf",
+     "meta": "Lecture notes &middot; 12 pages",
+     "summary": "Parton mean-field theory, gauge fluctuations, Gutzwiller projection, Schwinger bosons, and the projective symmetry group, with the <i>Z</i><sub>2</sub> PSGs of Schwinger bosons on the triangular lattice worked out in full.",
+     "tags": ["spin liquids", "partons", "PSG"]},
+    {"title": "Topology and Gauge Fields", "pdf": "/assets/lectures/topology_gauge_lecture.pdf",
+     "meta": "Lecture notes &middot; 13 pages",
+     "summary": "Landau levels, the Bloch bundle, Berry phase and Chern numbers, two-band Dirac models, bulk&ndash;edge correspondence, spontaneous symmetry breaking, the kink, and the abelian and non-abelian Higgs mechanism.",
+     "tags": ["topological insulators", "Chern number", "Higgs mechanism"]},
+    {"title": "Replica Fluctuations and the Replicon", "pdf": "/assets/lectures/replicon_lecture.pdf",
+     "meta": "Lecture notes &middot; 14 pages",
+     "summary": "Stability of the replica-symmetric solution of the Sherrington&ndash;Kirkpatrick model: longitudinal, anomalous and replicon sectors, the de Almeida&ndash;Thouless line, Parisi replica-symmetry breaking, ultrametricity, and the Nishimori line. With exercises and solutions.",
+     "tags": ["spin glasses", "replica theory", "Nishimori line"]}
+  ]
+}

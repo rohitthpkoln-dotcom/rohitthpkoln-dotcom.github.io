@@ -105,7 +105,11 @@ def layout(site: dict, key: str, title: str, body: str, *, head_extra: str = "")
 
 def banner(site: dict, key: str, title: str) -> str:
     image = site.get("banners", {}).get(key, "")
-    style = f' style="background-image: url(\'{esc(image)}\')"' if image else ""
+    position = "center"
+    if isinstance(image, dict):
+        image, position = image.get("src", ""), image.get("position", "center")
+    style = (f' style="background-image: url(\'{esc(image)}\'); background-size: cover;'
+             f' background-position: {esc(position)}"') if image else ""
     return f'    <section class="banner banner-{key}"{style}>\n      <h1>{title}</h1>\n    </section>\n'
 
 
@@ -120,6 +124,20 @@ def empty(text: str = "To be added.") -> str:
 def links_row(links: list[dict]) -> str:
     items = [link(esc(item["label"]), item["href"]) for item in links if item.get("href")]
     return f'<p class="entry-links">{"".join(f"<span>{i}</span>" for i in items)}</p>' if items else ""
+
+
+def facts_sections(sections: list[dict]) -> str:
+    """Compact CV-style lists: [{"heading": ..., "items": [{"text": ..., "when": ...}]}]."""
+    out = []
+    for section in sections:
+        rows = "\n".join(
+            f'          <li><span class="fact-text">{item["text"]}</span>'
+            f'<span class="fact-when">{item.get("when", "")}</span></li>'
+            for item in section.get("items", [])
+        )
+        out.append(f'      <section class="section">\n        <h2>{section["heading"]}</h2>\n'
+                   f'        <ul class="facts">\n{rows}\n        </ul>\n      </section>\n')
+    return "".join(out)
 
 
 # ------------------------------------------------------------------ pages
@@ -141,13 +159,13 @@ def page_home(site: dict) -> str:
         initials = "".join(part[0] for part in site["name"].split()[:2])
         photo = f'<div class="photo-placeholder" aria-hidden="true">{initials}</div>'
     body = banner(site, "home", esc(site["name"])) + f"""    <main class="page">
-      <div class="home-grid">
+      <div class="home-grid section">
         <div class="prose">
 {paragraphs}
 {icon_row}        </div>
         <figure class="photo-card" style="margin:0">{photo}</figure>
       </div>
-    </main>
+{facts_sections(site.get("home_sections", []))}    </main>
 """
     return layout(site, "home", site["name"], body)
 
@@ -171,6 +189,8 @@ def publication_entry(item: dict) -> str:
         lines.append(f'          <p class="entry-meta">{meta}</p>')
     if item.get("journal"):
         lines.append(f'          <p class="entry-meta">{link(item["journal"], ("https://doi.org/" + item["doi"]) if item.get("doi") else "")}</p>')
+    if item.get("note"):
+        lines.append(f'          <p class="entry-meta"><i>{item["note"]}</i></p>')
     extra = []
     if item.get("arxiv"):
         cat = f' [{item["category"]}]' if item.get("category") else ""
@@ -211,11 +231,10 @@ def page_talks(site: dict, data: dict) -> str:
                 out.append("      </ul>\n")
             out.append(f'      <h2 class="year-heading">{esc(talk_year)}</h2>\n      <ul class="entries">\n')
             year = talk_year
-        meta = " &middot; ".join(
-            x for x in [talk.get("date_text", talk.get("date", "")), link(talk.get("event", ""), talk.get("event_url", "")) + (f', {talk["place"]}' if talk.get("place") else "")] if x
-        )
+        where = ", ".join(x for x in [link(talk.get("event", ""), talk.get("event_url", "")), talk.get("place", "")] if x)
+        meta = " &middot; ".join(x for x in [talk.get("date_text", talk.get("date", "")), where] if x)
         out.append(
-            f'        <li class="entry">\n          <p class="entry-title">{talk["title"]}</p>\n'
+            f'        <li class="entry">\n          <p class="entry-title">{pill(talk.get("role", ""))}{talk["title"]}</p>\n'
             f'          <p class="entry-meta">{meta}</p>\n          {links_row(talk.get("links", []))}\n        </li>\n'
         )
     if year is not None:
@@ -238,19 +257,23 @@ def page_teaching(site: dict, data: dict) -> str:
                 role = f'<br /><span class="entry-meta">{course["role"]}</span>' if course.get("role") else ""
                 out.append(f'        <p class="entry-text">{link(course["title"], course.get("url", ""))}{role}</p>\n')
         out.append("      </section>\n")
+    out.append(facts_sections(data.get("extra", [])))
     if not data.get("institutions"):
         out.append(empty())
     body = banner(site, "teaching", "Teaching") + '    <main class="page">\n' + "".join(out) + "    </main>\n"
     return layout(site, "teaching", "Teaching", body)
 
 
+def pill(role: str) -> str:
+    return f'<span class="pill">{esc(role)}</span>' if role else ""
+
+
 def conference_list(items: list[dict]) -> str:
     rows = []
     for item in items:
-        pill = f'<span class="pill">{esc(item["role"])}</span>' if item.get("role") else ""
         meta = " &middot; ".join(x for x in [item.get("date", ""), item.get("place", "")] if x)
         rows.append(
-            f'        <li class="entry">\n          <p class="entry-title">{pill}{link(item["title"], item.get("url", ""))}</p>\n'
+            f'        <li class="entry">\n          <p class="entry-title">{pill(item.get("role", ""))}{link(item["title"], item.get("url", ""))}</p>\n'
             f'          <p class="entry-meta">{meta}</p>\n        </li>'
         )
     return '      <ul class="entries">\n' + "\n".join(rows) + "\n      </ul>\n"
@@ -258,7 +281,7 @@ def conference_list(items: list[dict]) -> str:
 
 def page_conferences(site: dict, data: dict) -> str:
     out = [intro(data.get("intro", ""))]
-    for key, heading in (("upcoming", "Upcoming"), ("past", "Past")):
+    for key, heading in (("upcoming", "Upcoming"), ("past", "Past"), ("visits", "Research Visits")):
         if data.get(key):
             out.append(f'      <section class="section">\n        <h2>{heading}</h2>\n{conference_list(data[key])}      </section>\n')
     if not data.get("upcoming") and not data.get("past"):
@@ -268,7 +291,17 @@ def page_conferences(site: dict, data: dict) -> str:
     return layout(site, "conferences", "Conferences & Workshops", body)
 
 
-def page_notes(site: dict, posts: list[dict]) -> str:
+def page_notes(site: dict, posts: list[dict], lectures: dict) -> str:
+    lecture_rows = []
+    for lec in lectures.get("lectures", []):
+        topics = "".join(f'<span class="tag">{esc(t)}</span>' for t in lec.get("tags", []))
+        lecture_rows.append(
+            f'        <li class="entry">\n          <p class="entry-title">{link(lec["title"], lec["pdf"])}</p>\n'
+            f'          <p class="entry-meta">{lec.get("meta", "")}</p>\n'
+            f'          <p class="entry-text">{lec.get("summary", "")}</p>\n'
+            f'          <p class="entry-links"><span>{link("PDF", lec["pdf"])}</span></p>\n'
+            f'          <div class="tag-row">{topics}</div>\n        </li>'
+        )
     rows = []
     for post in posts:
         tags = "".join(f'<span class="tag">{esc(t)}</span>' for t in post.get("tags", []))
@@ -279,11 +312,17 @@ def page_notes(site: dict, posts: list[dict]) -> str:
             f'          <div class="tag-row">{tags}</div>\n        </li>'
         )
     listing = '      <ul class="entries">\n' + "\n".join(rows) + "\n      </ul>\n" if rows else empty()
+    sections = ""
+    if lecture_rows:
+        sections += ('      <section class="section">\n        <h2>Lecture Notes</h2>\n'
+                     + intro(lectures.get("intro", ""))
+                     + '      <ul class="entries">\n' + "\n".join(lecture_rows) + "\n      </ul>\n      </section>\n")
+    sections += '      <section class="section">\n        <h2>Calculation Notes</h2>\n' + listing + "      </section>\n"
     body = (
         banner(site, "notes", "Notes")
         + '    <main class="page">\n'
         + intro("Long-form calculations and study notes, written out step by step.")
-        + listing
+        + sections
         + "    </main>\n"
     )
     return layout(site, "notes", "Notes", body)
@@ -348,7 +387,7 @@ def main() -> None:
     write("talks/index.html", page_talks(site, load("talks.json")))
     write("teaching/index.html", page_teaching(site, load("teaching.json")))
     write("conferences/index.html", page_conferences(site, load("conferences.json")))
-    write("notes/index.html", page_notes(site, posts))
+    write("notes/index.html", page_notes(site, posts, load("lectures.json")))
     for post in posts:
         write(f"posts/{post['slug']}/index.html", page_post(site, post))
 

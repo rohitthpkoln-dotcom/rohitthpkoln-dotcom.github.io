@@ -1,9 +1,34 @@
 {
   "intro": "",
   "paragraphs": [
-    "My research lies at the intersection of theoretical and numerical approaches to emergent phenomena in quantum many-body systems. I am particularly interested in thermalization, chaos, measurement-induced phase transitions, quantum error correction, and machine learning.",
-    "I use tools including exact diagonalization and tensor network techniques. In earlier work I studied topological transport in quantum magnets and spin liquids, the role of quantum geometry in transport phenomena, and exotic states in Weyl semimetals and topological insulators.",
-    "Across these settings, my work has centred on developing theoretical and numerical tools to understand nonequilibrium quantum dynamics, quantum information, and transport in strongly correlated systems."
+    "I study quantum many-body systems out of equilibrium, and the statistical mechanics behind quantum error correction. Below is a short description of the main directions, with the related papers listed on the <a href=\"/publications/\">Publications</a> page."
   ],
-  "topics": []
+  "topics": [
+    {
+      "heading": "Dynamical freezing and Floquet thermalization",
+      "paragraphs": [
+        "A generic periodically driven many-body system absorbs energy from the drive and heats up to infinite temperature. At special values of the drive parameters an emergent, approximately conserved quantity can make this heating extremely slow: the system is dynamically frozen. I study when and why freezing happens, using exactly solvable models of driven chaotic quantum dots, and how thermalization eventually sets in, through instanton processes near the freezing point.",
+        "Freezing is also useful in practice. In superconducting circuits it can arrest chaotic dynamics in transmon arrays and freeze the anharmonicity of a driven qubit (the &ldquo;frozonium&rdquo;), which helps protect quantum information. A review of these ideas, with Debanjan Chowdhury, will appear in the Annual Review of Condensed Matter Physics."
+      ]
+    },
+    {
+      "heading": "Statistical mechanics of quantum error correction",
+      "paragraphs": [
+        "Optimal decoding of a topological code under noise maps onto a disordered classical spin model. For the toric code with bit-flip errors this is the random-bond Ising model, and the optimal error threshold is the multicritical point on its Nishimori line. The same structure appears in Bayesian inference, where the Nishimori line is the condition that the model used for inference matches the model that produced the data.",
+        "I work on estimating Nishimori thresholds for Bayesian inference and for decoding <i>Z<sub>q</sub></i> surface codes, and, with collaborators in Cologne and Santa Barbara, on learning Potts models and <i>Z</i><sub>3</sub> toric codes, where both ordinary and higher Nishimori criticality appear. I am also interested in optimal control of quantum processors."
+      ]
+    },
+    {
+      "heading": "Earlier work: magnons, topology and correlated materials",
+      "paragraphs": [
+        "During my PhD I worked on transport of magnons in quantum magnets: the intrinsic nonlinear thermal Hall effect from quantum kinetic theory, nonlinear magnon transport in bilayer van der Waals antiferromagnets, and the thermal Hall signature of a chiral spin model on the honeycomb lattice using Schwinger-boson mean-field theory. Related work includes non-Bloch band theory for boundary-controlled magnon edge modes, the RKKY interaction in Weyl semimetal nanowires, and isospin reorientation in iridate heterostructures."
+      ]
+    },
+    {
+      "heading": "Methods",
+      "paragraphs": [
+        "Exact diagonalization, tensor networks (MPS, MPO, TEBD, TDVP), hybrid Monte Carlo&ndash;tensor-network methods, and QuTiP. I program in Python, Julia, C++ and Mathematica."
+      ]
+    }
+  ]
 }

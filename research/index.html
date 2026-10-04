@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Research Interests | Rohit Mukherjee</title>
-    <meta name="description" content="Rohit Mukherjee, Alexander von Humboldt postdoctoral fellow at the Institute for Theoretical Physics, University of Cologne." />
+    <meta name="description" content="Rohit Mukherjee, Alexander von Humboldt postdoctoral fellow at the Institute for Theoretical Physics, University of Cologne. Nonequilibrium quantum many-body physics and statistical mechanics of quantum error correction." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Karla:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -27,15 +27,39 @@
         </nav>
       </div>
     </header>
-    <section class="banner banner-research">
+    <section class="banner banner-research" style="background-image: url('/assets/img/cornell.jpg'); background-size: cover; background-position: center 0%">
       <h1>Research Interests</h1>
     </section>
     <main class="page">
       <div class="prose">
-        <p>My research lies at the intersection of theoretical and numerical approaches to emergent phenomena in quantum many-body systems. I am particularly interested in thermalization, chaos, measurement-induced phase transitions, quantum error correction, and machine learning.</p>
-        <p>I use tools including exact diagonalization and tensor network techniques. In earlier work I studied topological transport in quantum magnets and spin liquids, the role of quantum geometry in transport phenomena, and exotic states in Weyl semimetals and topological insulators.</p>
-        <p>Across these settings, my work has centred on developing theoretical and numerical tools to understand nonequilibrium quantum dynamics, quantum information, and transport in strongly correlated systems.</p>
+        <p>I study quantum many-body systems out of equilibrium, and the statistical mechanics behind quantum error correction. Below is a short description of the main directions, with the related papers listed on the <a href="/publications/">Publications</a> page.</p>
       </div>
+      <section class="section">
+        <h2>Dynamical freezing and Floquet thermalization</h2>
+        <div class="prose">
+          <p>A generic periodically driven many-body system absorbs energy from the drive and heats up to infinite temperature. At special values of the drive parameters an emergent, approximately conserved quantity can make this heating extremely slow: the system is dynamically frozen. I study when and why freezing happens, using exactly solvable models of driven chaotic quantum dots, and how thermalization eventually sets in, through instanton processes near the freezing point.</p>
+          <p>Freezing is also useful in practice. In superconducting circuits it can arrest chaotic dynamics in transmon arrays and freeze the anharmonicity of a driven qubit (the &ldquo;frozonium&rdquo;), which helps protect quantum information. A review of these ideas, with Debanjan Chowdhury, will appear in the Annual Review of Condensed Matter Physics.</p>
+        </div>
+      </section>
+      <section class="section">
+        <h2>Statistical mechanics of quantum error correction</h2>
+        <div class="prose">
+          <p>Optimal decoding of a topological code under noise maps onto a disordered classical spin model. For the toric code with bit-flip errors this is the random-bond Ising model, and the optimal error threshold is the multicritical point on its Nishimori line. The same structure appears in Bayesian inference, where the Nishimori line is the condition that the model used for inference matches the model that produced the data.</p>
+          <p>I work on estimating Nishimori thresholds for Bayesian inference and for decoding <i>Z<sub>q</sub></i> surface codes, and, with collaborators in Cologne and Santa Barbara, on learning Potts models and <i>Z</i><sub>3</sub> toric codes, where both ordinary and higher Nishimori criticality appear. I am also interested in optimal control of quantum processors.</p>
+        </div>
+      </section>
+      <section class="section">
+        <h2>Earlier work: magnons, topology and correlated materials</h2>
+        <div class="prose">
+          <p>During my PhD I worked on transport of magnons in quantum magnets: the intrinsic nonlinear thermal Hall effect from quantum kinetic theory, nonlinear magnon transport in bilayer van der Waals antiferromagnets, and the thermal Hall signature of a chiral spin model on the honeycomb lattice using Schwinger-boson mean-field theory. Related work includes non-Bloch band theory for boundary-controlled magnon edge modes, the RKKY interaction in Weyl semimetal nanowires, and isospin reorientation in iridate heterostructures.</p>
+        </div>
+      </section>
+      <section class="section">
+        <h2>Methods</h2>
+        <div class="prose">
+          <p>Exact diagonalization, tensor networks (MPS, MPO, TEBD, TDVP), hybrid Monte Carlo&ndash;tensor-network methods, and QuTiP. I program in Python, Julia, C++ and Mathematica.</p>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">

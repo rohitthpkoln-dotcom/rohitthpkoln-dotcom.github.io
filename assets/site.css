@@ -279,6 +279,23 @@ h1, h2, h3, h4 { font-family: var(--serif); color: var(--heading); line-height: 
 
 .empty { color: var(--muted); font-style: italic; }
 
+/* CV-style lists: text left, date right */
+.facts { list-style: none; margin: 0; padding: 0; }
+.facts li {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.fact-when { color: var(--muted); white-space: nowrap; font-size: 16px; }
+.fact-sub { display: block; color: var(--muted); font-size: 16px; }
+.home-grid.section { margin-bottom: 72px; }
+
+@media (max-width: 600px) {
+  .facts li { flex-direction: column; gap: 2px; }
+}
+
 /* ---------------- footer ---------------- */
 .footer {
   border-top: 1px solid var(--rule);
