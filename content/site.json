@@ -13,8 +13,8 @@
       "position": "center 30%"
     },
     "publications": {
-      "src": "/assets/img/board-right.jpg",
-      "position": "center 50%"
+      "src": "/assets/img/iitk-board.jpg",
+      "position": "center 40%"
     },
     "talks": {
       "src": "/assets/img/talks.jpg",
@@ -25,8 +25,8 @@
       "position": "center 45%"
     },
     "conferences": {
-      "src": "/assets/img/talks-right.jpg",
-      "position": "center 55%"
+      "src": "/assets/img/iitk-back.jpg",
+      "position": "center 45%"
     },
     "notes": {
       "src": "/assets/img/board-left.jpg",

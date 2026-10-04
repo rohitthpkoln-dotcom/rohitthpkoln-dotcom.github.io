@@ -211,8 +211,8 @@ b, strong { font-weight: 600; }
 /* home */
 .home-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 360px;
-  gap: 80px;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 72px;
   align-items: start;
   margin-bottom: 104px;
 }
@@ -439,7 +439,7 @@ b, strong { font-weight: 600; }
 @media (max-width: 860px) {
   body { font-size: 16px; }
   .home-grid { grid-template-columns: 1fr; gap: 56px; }
-  .photo-card { max-width: 300px; order: -1; }
+  .photo-card { max-width: 100%; order: -1; }
   .post-shell { grid-template-columns: 1fr; }
   .toc-card { display: none; }
   .banner { min-height: 38vh; }
