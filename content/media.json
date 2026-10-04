@@ -1,0 +1,67 @@
+{
+  "intro": "",
+  "sections": [
+    {
+      "heading": "In the Press",
+      "items": [
+        {
+          "kind": "Press release",
+          "title": "Holding chaos at bay in the quantum world",
+          "url": "https://news.cornell.edu/stories/2026/02/holding-chaos-bay-quantum-world",
+          "source": "Cornell Chronicle",
+          "date": "February 2026",
+          "text": "Cornell's news story on our work on dynamical freezing and arresting quantum chaos."
+        },
+        {
+          "kind": "News",
+          "title": "Dynamical freezing can protect quantum information for near-cosmic timescales",
+          "url": "https://phys.org/news/2026-02-dynamical-quantum-cosmic-timescales.html",
+          "source": "Phys.org",
+          "date": "February 2026",
+          "text": "Coverage of <a href=\"/publications/\">Floquet thermalization via instantons near dynamical freezing</a> (Phys. Rev. X, 2026)."
+        },
+        {
+          "kind": "Article",
+          "title": "Fulbright-Nehru scholars prepare for the US",
+          "url": "https://www.indiablooms.com/life/fulbright-nehru-scholars-prepare-for-the-us/details",
+          "source": "IndiaBlooms"
+        }
+      ]
+    },
+    {
+      "heading": "Videos",
+      "kind": "videos",
+      "items": [
+        {
+          "youtube": "u0PjR2jVTic",
+          "start": 16,
+          "title": "YouTube video"
+        },
+        {
+          "youtube": "E3uSQ6Kr_G0",
+          "start": 578,
+          "title": "YouTube video"
+        }
+      ]
+    },
+    {
+      "heading": "Social Media",
+      "items": [
+        {
+          "kind": "Reel",
+          "title": "Reel on Facebook",
+          "url": "https://www.facebook.com/reel/619657096763705",
+          "source": "Facebook"
+        }
+      ]
+    },
+    {
+      "heading": "Favourite Websites",
+      "items": []
+    },
+    {
+      "heading": "Tips",
+      "items": []
+    }
+  ]
+}

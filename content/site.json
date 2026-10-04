@@ -31,6 +31,10 @@
     "notes": {
       "src": "/assets/img/board-left.jpg",
       "position": "center 50%"
+    },
+    "links": {
+      "src": "/assets/img/magnets-board.jpg",
+      "position": "center 40%"
     }
   },
   "links": [
