@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import html
 import json
+import re
 from datetime import date
 from pathlib import Path
 
@@ -18,6 +19,7 @@ import rebuild_posts
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT = ROOT / "content"
+AUTOLINKS: dict = {}
 
 FONTS = "/assets/fonts/fonts.css"  # self-hosted Newsreader + Inter
 
@@ -325,7 +327,6 @@ def page_notes(site: dict, posts: list[dict], lectures: dict) -> str:
     body = (
         banner(site, "notes", "Notes")
         + '    <main class="page">\n'
-        + intro("Long-form calculations and study notes, written out step by step.")
         + sections
         + "    </main>\n"
     )
@@ -374,15 +375,45 @@ def page_post(site: dict, post: dict) -> str:
     return layout(site, "notes", post["title"], POST_BODY, head_extra=POST_HEAD, hero=False)
 
 
+# ------------------------------------------------------------------ autolinks
+def autolink(page: str, links: dict) -> str:
+    """Link known names (universities, people) in the text of <main>, outside existing links."""
+    names = sorted(links, key=len, reverse=True)
+    pattern = re.compile("|".join(re.escape(n) for n in names)) if names else None
+
+    def link_text(text: str) -> str:
+        return pattern.sub(lambda m: f'<a href="{esc(links[m.group(0)])}">{m.group(0)}</a>', text)
+
+    def process(main: str) -> str:
+        out, depth = [], 0
+        for part in re.split(r"(<[^>]+>)", main):
+            if part.startswith("<"):
+                if re.match(r"<a[\s>]", part):
+                    depth += 1
+                elif part.startswith("</a"):
+                    depth -= 1
+                out.append(part)
+            else:
+                out.append(link_text(part) if depth == 0 and part.strip() else part)
+        return "".join(out)
+
+    if not pattern:
+        return page
+    return re.sub(r"(<main[^>]*>)(.*?)(</main>)", lambda m: m.group(1) + process(m.group(2)) + m.group(3), page, flags=re.S)
+
+
 # ------------------------------------------------------------------ main
 def write(path: str, text: str) -> None:
     target = ROOT / path
     target.parent.mkdir(parents=True, exist_ok=True)
+    text = autolink(text, AUTOLINKS)
     target.write_text(text, encoding="utf-8")
     print(f"  wrote {path}")
 
 
 def main() -> None:
+    global AUTOLINKS
+    AUTOLINKS = load("links.json")
     site = load("site.json")
     posts = rebuild_posts.build_manifest()
     write("index.html", page_home(site))

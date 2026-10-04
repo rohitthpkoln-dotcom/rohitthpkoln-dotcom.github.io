@@ -66,10 +66,10 @@
     }
   ],
   "home": [
-    "I am currently an Alexander von Humboldt Postdoctoral Fellow at the <a href=\"https://www.thp.uni-koeln.de/\">Institute for Theoretical Physics</a>, University of Cologne, in the group of <a href=\"https://www.thp.uni-koeln.de/trebst/\">Prof. Simon Trebst</a>.",
+    "I am currently an Alexander von Humboldt Postdoctoral Fellow at the <a href=\"https://www.thp.uni-koeln.de/\">Institute for Theoretical Physics</a>, University of Cologne, in the group of Prof. Simon Trebst.",
     "From 2023 to 2025 I was a Fulbright Fellow at <a href=\"https://physics.cornell.edu/\">Cornell University</a>, working with Prof. Debanjan Chowdhury.",
     "I finished my PhD in physics at the <a href=\"https://www.iitk.ac.in/phy/\">Indian Institute of Technology Kanpur</a>, supervised by Prof. Arijit Kundu and Prof. Avinash Singh. Before that, I did my MSc at IIT Kanpur and my BSc at Ramakrishna Mission Vivekananda Centenary College, Kolkata.",
-    "My research interests lie mainly in <b>nonequilibrium quantum many-body physics</b> and the <b>statistical mechanics of quantum error correction</b>. More specifically, I study how periodic driving can be used to control <i>superconducting quantum processors</i> built from transmon and fluxonium qubits, and <i>Nishimori criticality</i> in Bayesian inference and surface-code decoding."
+    "My research interests lie mainly in <b>nonequilibrium quantum many-body physics</b> and the <b>statistical mechanics of quantum error correction</b>. More specifically, I study how periodic driving can be used to control <i>superconducting quantum processors</i> built from transmon and fluxonium qubits, <i>Nishimori criticality</i> in Bayesian inference and surface-code decoding, and the use of <i>machine learning</i> in physics."
   ],
   "home_sections": [
     {
@@ -78,22 +78,18 @@
         {
           "when": "2025 &ndash; now",
           "current": true,
-          "url": "https://www.thp.uni-koeln.de/trebst/",
           "text": "Humboldt Postdoctoral Fellow<span class=\"fact-place\">University of Cologne, Germany</span><span class=\"fact-sub\">Group of Prof. Simon Trebst</span>"
         },
         {
           "when": "2023 &ndash; 2025",
-          "url": "https://physics.cornell.edu/",
           "text": "Fulbright Fellow<span class=\"fact-place\">Cornell University, USA</span><span class=\"fact-sub\">With Prof. Debanjan Chowdhury</span>"
         },
         {
           "when": "2019 &ndash; 2025",
-          "url": "https://www.iitk.ac.in/phy/",
           "text": "PhD in Physics<span class=\"fact-place\">IIT Kanpur, India</span><span class=\"fact-sub\">Advisors: Prof. Arijit Kundu and Prof. Avinash Singh</span>"
         },
         {
           "when": "2017 &ndash; 2019",
-          "url": "https://www.iitk.ac.in/phy/",
           "text": "MSc in Physics<span class=\"fact-place\">IIT Kanpur, India</span><span class=\"fact-sub\">Advisor: Prof. Arijit Kundu</span>"
         },
         {

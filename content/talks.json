@@ -1,10 +1,47 @@
 {
   "intro": "Talks and posters, listed in reverse chronological order.",
   "talks": [
-    {"title": "Cornell Quantum Theory Retreat", "role": "Poster", "sort": "2024-09", "date_text": "September 2024", "place": "Cornell University, USA"},
-    {"title": "Cornell Quantum Day", "role": "Invited talk", "sort": "2024-07", "date_text": "July 2024", "place": "Cornell University, USA"},
-    {"title": "Young Investigators Meet on Quantum Condensed Matter Theory", "role": "Poster", "sort": "2022-11", "date_text": "November 2022", "place": "NISER, India"},
-    {"title": "Annual Conference on Quantum Condensed Matter", "role": "Short talk", "sort": "2022-10", "date_text": "October 2022", "place": "IIT Kanpur, India"},
-    {"title": "Strongly Correlated Matter: from Quantum Criticality to Flat Bands", "role": "Poster", "sort": "2022-01", "date_text": "2022", "place": "ICTP, Trieste, Italy"}
+    {
+      "title": "CRC Meeting",
+      "role": "Talk",
+      "sort": "2026-11",
+      "date_text": "November 2026",
+      "place": "Berlin, Germany"
+    },
+    {
+      "title": "Cornell Quantum Theory Retreat",
+      "role": "Poster",
+      "sort": "2024-09",
+      "date_text": "September 2024",
+      "place": "Cornell University, USA"
+    },
+    {
+      "title": "Cornell Quantum Day",
+      "role": "Invited talk",
+      "sort": "2024-07",
+      "date_text": "July 2024",
+      "place": "Cornell University, USA"
+    },
+    {
+      "title": "Young Investigators Meet on Quantum Condensed Matter Theory",
+      "role": "Poster",
+      "sort": "2022-11",
+      "date_text": "November 2022",
+      "place": "NISER, India"
+    },
+    {
+      "title": "Annual Conference on Quantum Condensed Matter",
+      "role": "Short talk",
+      "sort": "2022-10",
+      "date_text": "October 2022",
+      "place": "IIT Kanpur, India"
+    },
+    {
+      "title": "Strongly Correlated Matter: from Quantum Criticality to Flat Bands",
+      "role": "Poster",
+      "sort": "2022-01",
+      "date_text": "2022",
+      "place": "ICTP, Trieste, Italy"
+    }
   ]
 }
