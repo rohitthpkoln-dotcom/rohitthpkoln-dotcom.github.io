@@ -223,26 +223,12 @@ b, strong { font-weight: 600; }
   line-height: 1.45;
   color: var(--ink);
 }
-.photo-card {
-  margin: 0;
-  position: relative;
-  padding: 0 18px 18px 0;         /* room for the offset frame, so it stays inside the column */
-}
-.photo-card::before {             /* offset brass frame */
-  content: "";
-  position: absolute;
-  inset: 18px 0 0 18px;
-  border: 1px solid var(--brass);
-  z-index: 0;
-}
+.photo-card { margin: 0; }
 .photo-card img {
-  position: relative;
-  z-index: 1;
   display: block;
   width: 100%;
   height: auto;
-  filter: saturate(0.92);
-  box-shadow: 0 24px 48px -24px rgba(16, 25, 28, 0.45);
+  border-radius: 3px;
 }
 
 .icon-row { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
