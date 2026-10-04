@@ -19,19 +19,16 @@ import rebuild_posts
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT = ROOT / "content"
 
-FONTS = (
-    "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700"
-    "&family=Karla:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap"
-)
+FONTS = "/assets/fonts/fonts.css"  # self-hosted Newsreader + Inter
 
 # (key, nav label, url, banner title)
 PAGES = [
     ("home", "Home", "/", None),
-    ("research", "Research Interests", "/research/", "Research Interests"),
+    ("research", "Research", "/research/", "Research Interests"),
     ("publications", "Publications", "/publications/", "Publications"),
     ("talks", "Talks", "/talks/", "Talks"),
     ("teaching", "Teaching", "/teaching/", "Teaching"),
-    ("conferences", "Conferences &amp; Workshops", "/conferences/", "Conferences &amp; Workshops"),
+    ("conferences", "Conferences", "/conferences/", "Conferences &amp; Workshops"),
     ("notes", "Notes", "/notes/", "Notes"),
 ]
 
@@ -60,7 +57,7 @@ def link(text: str, href: str = "") -> str:
 
 
 # ------------------------------------------------------------------ layout
-def layout(site: dict, key: str, title: str, body: str, *, head_extra: str = "") -> str:
+def layout(site: dict, key: str, title: str, body: str, *, head_extra: str = "", hero: bool = True) -> str:
     current = ' aria-current="page"'
     nav = "\n".join(
         f'          <a href="{url}"{current if k == key else ""}>{label}</a>'
@@ -75,12 +72,10 @@ def layout(site: dict, key: str, title: str, body: str, *, head_extra: str = "")
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{page_title}</title>
     <meta name="description" content="{esc(site['description'])}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="{FONTS}" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/site.css" />{head_extra}
   </head>
-  <body>
+  <body class="{"has-hero" if hero else "plain"}">
     <header class="topbar">
       <div class="topbar-inner">
         <a class="brand" href="/">{esc(site['name'])}</a>
@@ -103,14 +98,16 @@ def layout(site: dict, key: str, title: str, body: str, *, head_extra: str = "")
 """
 
 
-def banner(site: dict, key: str, title: str) -> str:
+def banner(site: dict, key: str, title: str, subtitle: str = "") -> str:
     image = site.get("banners", {}).get(key, "")
     position = "center"
     if isinstance(image, dict):
         image, position = image.get("src", ""), image.get("position", "center")
     style = (f' style="background-image: url(\'{esc(image)}\'); background-size: cover;'
              f' background-position: {esc(position)}"') if image else ""
-    return f'    <section class="banner banner-{key}"{style}>\n      <h1>{title}</h1>\n    </section>\n'
+    sub = f'\n        <p class="banner-sub">{subtitle}</p>' if subtitle else ""
+    return (f'    <section class="banner banner-{key}"{style}>\n      <div class="banner-inner">\n'
+            f'        <h1>{title}</h1>{sub}\n      </div>\n    </section>\n')
 
 
 def intro(text: str) -> str:
@@ -131,8 +128,8 @@ def facts_sections(sections: list[dict]) -> str:
     out = []
     for section in sections:
         rows = "\n".join(
-            f'          <li><span class="fact-text">{item["text"]}</span>'
-            f'<span class="fact-when">{item.get("when", "")}</span></li>'
+            f'          <li><span class="fact-when">{item.get("when", "")}</span>'
+            f'<span class="fact-text">{item["text"]}</span></li>'
             for item in section.get("items", [])
         )
         out.append(f'      <section class="section">\n        <h2>{section["heading"]}</h2>\n'
@@ -158,7 +155,7 @@ def page_home(site: dict) -> str:
     else:
         initials = "".join(part[0] for part in site["name"].split()[:2])
         photo = f'<div class="photo-placeholder" aria-hidden="true">{initials}</div>'
-    body = banner(site, "home", esc(site["name"])) + f"""    <main class="page">
+    body = banner(site, "home", esc(site["name"]), site.get("tagline", "")) + f"""    <main class="page">
       <div class="home-grid section">
         <div class="prose">
 {paragraphs}
@@ -367,7 +364,7 @@ POST_BODY = """    <main class="post-shell">
 
 
 def page_post(site: dict, post: dict) -> str:
-    return layout(site, "notes", post["title"], POST_BODY, head_extra=POST_HEAD)
+    return layout(site, "notes", post["title"], POST_BODY, head_extra=POST_HEAD, hero=False)
 
 
 # ------------------------------------------------------------------ main

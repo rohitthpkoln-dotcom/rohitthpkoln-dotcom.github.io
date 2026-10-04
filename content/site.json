@@ -1,15 +1,16 @@
 {
   "name": "Rohit Mukherjee",
+  "tagline": "Theoretical physicist &middot; University of Cologne",
   "description": "Rohit Mukherjee, Alexander von Humboldt postdoctoral fellow at the Institute for Theoretical Physics, University of Cologne. Nonequilibrium quantum many-body physics and statistical mechanics of quantum error correction.",
   "photo": "/assets/img/portrait.jpg",
   "banners": {
     "home": {
-      "src": "/assets/img/forest.jpg",
-      "position": "center 40%"
+      "src": "/assets/img/blackboard.jpg",
+      "position": "center 60%"
     },
     "research": {
-      "src": "/assets/img/blackboard.jpg",
-      "position": "center 62%"
+      "src": "/assets/img/forest.jpg",
+      "position": "center 30%"
     },
     "publications": {
       "src": "/assets/img/board-right.jpg",
@@ -129,10 +130,6 @@
       "heading": "National Examinations",
       "items": [
         {
-          "text": "National Graduate Physics Examination (NGPE), state topper",
-          "when": "2017"
-        },
-        {
           "text": "CSIR-NET Junior Research Fellowship, All India Rank 7",
           "when": "2019"
         },
@@ -143,6 +140,10 @@
         {
           "text": "JEST Physics, All India Rank 41",
           "when": "2019"
+        },
+        {
+          "text": "National Graduate Physics Examination (NGPE), state topper",
+          "when": "2017"
         },
         {
           "text": "IIT JAM Physics, All India Rank 21",
