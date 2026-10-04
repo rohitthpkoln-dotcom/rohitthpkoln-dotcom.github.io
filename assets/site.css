@@ -182,7 +182,7 @@ h1, h2, h3, h4 { font-family: var(--serif); color: var(--heading); line-height: 
 /* Home: text + photo */
 .home-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 380px;
+  grid-template-columns: minmax(0, 1fr) 460px;
   gap: 56px;
   align-items: start;
 }
