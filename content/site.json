@@ -76,53 +76,65 @@
       "heading": "Positions and Education",
       "items": [
         {
-          "text": "Postdoctoral fellow, University of Cologne<span class=\"fact-sub\">Alexander von Humboldt Research Fellow. Host: Prof. Simon Trebst</span>",
-          "when": "2025 &ndash; present"
+          "when": "2025 &ndash; now",
+          "current": true,
+          "url": "https://www.thp.uni-koeln.de/trebst/",
+          "text": "Humboldt Postdoctoral Fellow<span class=\"fact-place\">University of Cologne, Germany</span><span class=\"fact-sub\">Group of Prof. Simon Trebst</span>"
         },
         {
-          "text": "Fulbright fellow, Cornell University, USA<span class=\"fact-sub\">Host: Prof. Debanjan Chowdhury</span>",
-          "when": "2023 &ndash; 2025"
+          "when": "2023 &ndash; 2025",
+          "url": "https://physics.cornell.edu/",
+          "text": "Fulbright Fellow<span class=\"fact-place\">Cornell University, USA</span><span class=\"fact-sub\">With Prof. Debanjan Chowdhury</span>"
         },
         {
-          "text": "PhD in Physics, IIT Kanpur<span class=\"fact-sub\">Advisors: Prof. Arijit Kundu, Prof. Avinash Singh</span>",
-          "when": "2019 &ndash; 2025"
+          "when": "2019 &ndash; 2025",
+          "url": "https://www.iitk.ac.in/phy/",
+          "text": "PhD in Physics<span class=\"fact-place\">IIT Kanpur, India</span><span class=\"fact-sub\">Advisors: Prof. Arijit Kundu and Prof. Avinash Singh</span>"
         },
         {
-          "text": "MSc in Physics, IIT Kanpur<span class=\"fact-sub\">Advisor: Prof. Arijit Kundu</span>",
-          "when": "2017 &ndash; 2019"
+          "when": "2017 &ndash; 2019",
+          "url": "https://www.iitk.ac.in/phy/",
+          "text": "MSc in Physics<span class=\"fact-place\">IIT Kanpur, India</span><span class=\"fact-sub\">Advisor: Prof. Arijit Kundu</span>"
         },
         {
-          "text": "BSc in Physics, Ramakrishna Mission Vivekananda Centenary College, Kolkata<span class=\"fact-sub\">Summa cum laude, gold medal</span>",
-          "when": "2014 &ndash; 2017"
+          "when": "2014 &ndash; 2017",
+          "text": "BSc in Physics<span class=\"fact-place\">Ramakrishna Mission Vivekananda Centenary College, Kolkata</span><span class=\"fact-sub\">Summa cum laude, gold medal</span>"
         }
-      ]
+      ],
+      "kind": "timeline"
     },
     {
       "heading": "Selected Honours",
       "items": [
         {
-          "text": "Invited scientist, Falling Walls Science Summit, Berlin",
-          "when": "2026"
+          "text": "Invited scientist<span class=\"fact-place\">Falling Walls Science Summit, Berlin</span>",
+          "when": "2026",
+          "url": "https://falling-walls.com/"
         },
         {
-          "text": "Humboldt Research Fellowship, Alexander von Humboldt Foundation",
-          "when": "2025"
+          "text": "Humboldt Research Fellowship<span class=\"fact-place\">Alexander von Humboldt Foundation</span>",
+          "when": "2025",
+          "url": "https://www.humboldt-foundation.de/en/apply/sponsorship-programmes/humboldt-research-fellowship"
         },
         {
-          "text": "Fulbright Fellowship, U.S. Department of State",
-          "when": "2023"
+          "text": "Fulbright Fellowship<span class=\"fact-place\">U.S. Department of State</span>",
+          "when": "2023",
+          "url": "https://fulbrightprogram.org/"
         },
         {
-          "text": "Junior Research Fellowship, CSIR, Government of India",
-          "when": "2019"
+          "text": "Junior Research Fellowship<span class=\"fact-place\">CSIR, Government of India</span>",
+          "when": "2019",
+          "url": "https://csirhrdg.res.in/"
         },
         {
-          "text": "Academic Excellence Award, IIT Kanpur",
-          "when": "2018"
+          "text": "Academic Excellence Award<span class=\"fact-place\">IIT Kanpur</span>",
+          "when": "2018",
+          "url": "https://www.iitk.ac.in/"
         },
         {
-          "text": "Cultvision essay competition, first prize, Indian Association for the Cultivation of Science",
-          "when": "2017"
+          "text": "Cultvision Essay Competition, first prize<span class=\"fact-place\">Indian Association for the Cultivation of Science</span>",
+          "when": "2017",
+          "url": "https://iacs.res.in/"
         }
       ]
     },
@@ -130,27 +142,27 @@
       "heading": "National Examinations",
       "items": [
         {
-          "text": "CSIR-NET Junior Research Fellowship, All India Rank 7",
+          "text": "CSIR-NET Junior Research Fellowship<span class=\"fact-place\">All India Rank 7</span>",
           "when": "2019"
         },
         {
-          "text": "GATE Physics, All India Rank 11",
+          "text": "GATE Physics<span class=\"fact-place\">All India Rank 11</span>",
           "when": "2019"
         },
         {
-          "text": "JEST Physics, All India Rank 41",
+          "text": "JEST Physics<span class=\"fact-place\">All India Rank 41</span>",
           "when": "2019"
         },
         {
-          "text": "National Graduate Physics Examination (NGPE), state topper",
+          "text": "National Graduate Physics Examination (NGPE)<span class=\"fact-place\">State topper</span>",
           "when": "2017"
         },
         {
-          "text": "IIT JAM Physics, All India Rank 21",
+          "text": "IIT JAM Physics<span class=\"fact-place\">All India Rank 21</span>",
           "when": "2017"
         },
         {
-          "text": "IIT-JEE Advanced, top 1% nationwide",
+          "text": "IIT-JEE Advanced<span class=\"fact-place\">Top 1% nationwide</span>",
           "when": ""
         }
       ]
@@ -159,8 +171,8 @@
       "heading": "Service",
       "items": [
         {
-          "text": "Referee for Physical Review Letters and Physical Review B",
-          "when": ""
+          "when": "",
+          "text": "Referee<span class=\"fact-place\">Physical Review Letters and Physical Review B</span>"
         }
       ]
     }

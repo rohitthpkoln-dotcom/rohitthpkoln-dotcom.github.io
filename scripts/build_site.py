@@ -127,13 +127,20 @@ def facts_sections(sections: list[dict]) -> str:
     """Compact CV-style lists: [{"heading": ..., "items": [{"text": ..., "when": ...}]}]."""
     out = []
     for section in sections:
-        rows = "\n".join(
-            f'          <li><span class="fact-when">{item.get("when", "")}</span>'
-            f'<span class="fact-text">{item["text"]}</span></li>'
-            for item in section.get("items", [])
-        )
+        timeline = section.get("kind") == "timeline"
+        rows = []
+        for item in section.get("items", []):
+            text = item["text"]
+            if item.get("url"):
+                head, sep, rest = text.partition("<span")
+                text = f'<a class="fact-link" href="{esc(item["url"])}">{head}</a>' + (sep + rest if sep else "")
+            marker = '<span class="tl-dot" aria-hidden="true"></span>' if timeline else ""
+            current = ' class="is-current"' if item.get("current") else ""
+            rows.append(f'          <li{current}><span class="fact-when">{item.get("when", "")}</span>'
+                        f'{marker}<span class="fact-text">{text}</span></li>')
+        cls = "facts timeline" if timeline else "facts"
         out.append(f'      <section class="section">\n        <h2>{section["heading"]}</h2>\n'
-                   f'        <ul class="facts">\n{rows}\n        </ul>\n      </section>\n')
+                   f'        <ul class="{cls}">\n' + "\n".join(rows) + '\n        </ul>\n      </section>\n')
     return "".join(out)
 
 
