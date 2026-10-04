@@ -3,55 +3,139 @@
   "description": "Rohit Mukherjee, Alexander von Humboldt postdoctoral fellow at the Institute for Theoretical Physics, University of Cologne. Nonequilibrium quantum many-body physics and statistical mechanics of quantum error correction.",
   "photo": "/assets/img/portrait.jpg",
   "banners": {
-    "home": {"src": "/assets/img/blackboard.jpg", "position": "center 62%"},
-    "research": {"src": "/assets/img/cornell.jpg", "position": "center 0%"},
-    "publications": "",
-    "talks": {"src": "/assets/img/talks.jpg", "position": "center 30%"},
-    "teaching": {"src": "/assets/img/teaching.jpg", "position": "center 45%"},
-    "conferences": "",
-    "notes": ""
+    "home": {
+      "src": "/assets/img/forest.jpg",
+      "position": "center 40%"
+    },
+    "research": {
+      "src": "/assets/img/blackboard.jpg",
+      "position": "center 62%"
+    },
+    "publications": {
+      "src": "/assets/img/board-right.jpg",
+      "position": "center 50%"
+    },
+    "talks": {
+      "src": "/assets/img/talks.jpg",
+      "position": "center 30%"
+    },
+    "teaching": {
+      "src": "/assets/img/teaching.jpg",
+      "position": "center 45%"
+    },
+    "conferences": {
+      "src": "/assets/img/talks-right.jpg",
+      "position": "center 55%"
+    },
+    "notes": {
+      "src": "/assets/img/board-left.jpg",
+      "position": "center 50%"
+    }
   },
   "links": [
-    {"kind": "email", "label": "Email", "href": "rmukher3@uni-koeln.de"},
-    {"kind": "scholar", "label": "Google Scholar", "href": ""},
-    {"kind": "arxiv", "label": "arXiv", "href": ""},
-    {"kind": "orcid", "label": "ORCID", "href": ""},
-    {"kind": "github", "label": "GitHub", "href": "https://github.com/rohitthpkoln-dotcom"},
-    {"kind": "cv", "label": "CV", "href": ""}
+    {
+      "kind": "email",
+      "label": "Email",
+      "href": "rmukher3@uni-koeln.de"
+    },
+    {
+      "kind": "scholar",
+      "label": "Google Scholar",
+      "href": ""
+    },
+    {
+      "kind": "arxiv",
+      "label": "arXiv",
+      "href": ""
+    },
+    {
+      "kind": "orcid",
+      "label": "ORCID",
+      "href": ""
+    },
+    {
+      "kind": "github",
+      "label": "GitHub",
+      "href": "https://github.com/rohitthpkoln-dotcom"
+    },
+    {
+      "kind": "cv",
+      "label": "CV",
+      "href": ""
+    }
   ],
   "home": [
-    "I am an Alexander von Humboldt postdoctoral fellow at the <a href=\"https://www.thp.uni-koeln.de/\">Institute for Theoretical Physics, University of Cologne</a>, working with <a href=\"https://www.thp.uni-koeln.de/trebst/\">Simon Trebst</a>.",
-    "Before coming to Cologne I was a Fulbright fellow at Cornell University (2023&ndash;2025), working with Debanjan Chowdhury. I did my PhD and MSc in physics at IIT Kanpur, advised by Arijit Kundu and Avinash Singh, and my BSc at Ramakrishna Mission Vivekananda Centenary College, Kolkata.",
-    "I work on <b>nonequilibrium quantum many-body physics</b> and on the <b>statistical mechanics of quantum error correction</b>. On the dynamics side, I study dynamical freezing and Floquet thermalization in periodically driven systems, and how freezing can be used in superconducting circuits. On the error-correction side, I study Nishimori criticality, Bayesian inference and the decoding of <i>Z<sub>q</sub></i> surface codes. I am also interested in optimal control of quantum processors.",
-    "My tools are exact diagonalization, tensor networks (MPS, MPO, TEBD, TDVP) and hybrid Monte Carlo&ndash;tensor-network methods. Earlier I worked on magnon transport and thermal Hall effects in quantum magnets, Schwinger-boson theory of chiral spin models, Weyl semimetals, and iridate heterostructures."
+    "I am currently an Alexander von Humboldt Postdoctoral Fellow at the <a href=\"https://www.thp.uni-koeln.de/\">Institute for Theoretical Physics</a>, University of Cologne, in the group of <a href=\"https://www.thp.uni-koeln.de/trebst/\">Prof. Simon Trebst</a>.",
+    "From 2023 to 2025 I was a Fulbright Fellow at <a href=\"https://physics.cornell.edu/\">Cornell University</a>, working with Prof. Debanjan Chowdhury.",
+    "I finished my PhD in physics at the <a href=\"https://www.iitk.ac.in/phy/\">Indian Institute of Technology Kanpur</a>, supervised by Prof. Arijit Kundu and Prof. Avinash Singh. Before that, I did my MSc at IIT Kanpur and my BSc at Ramakrishna Mission Vivekananda Centenary College, Kolkata.",
+    "My research interests lie mainly in <b>nonequilibrium quantum many-body physics</b> and the <b>statistical mechanics of quantum error correction</b>. More specifically, I study <i>dynamical freezing and Floquet thermalization</i> in driven quantum systems and superconducting circuits, and <i>Nishimori criticality</i> in Bayesian inference and surface-code decoding."
   ],
   "home_sections": [
     {
       "heading": "Positions and Education",
       "items": [
-        {"text": "Postdoctoral fellow, University of Cologne<span class=\"fact-sub\">Alexander von Humboldt Research Fellow. Host: Prof. Simon Trebst</span>", "when": "2025 &ndash; present"},
-        {"text": "Fulbright fellow, Cornell University, USA<span class=\"fact-sub\">Host: Prof. Debanjan Chowdhury</span>", "when": "2023 &ndash; 2025"},
-        {"text": "PhD in Physics, IIT Kanpur<span class=\"fact-sub\">Advisors: Prof. Arijit Kundu, Prof. Avinash Singh</span>", "when": "2019 &ndash; 2025"},
-        {"text": "MSc in Physics, IIT Kanpur<span class=\"fact-sub\">Advisor: Prof. Arijit Kundu</span>", "when": "2017 &ndash; 2019"},
-        {"text": "BSc in Physics, Ramakrishna Mission Vivekananda Centenary College, Kolkata<span class=\"fact-sub\">Summa cum laude, gold medal</span>", "when": "2014 &ndash; 2017"}
+        {
+          "text": "Postdoctoral fellow, University of Cologne<span class=\"fact-sub\">Alexander von Humboldt Research Fellow. Host: Prof. Simon Trebst</span>",
+          "when": "2025 &ndash; present"
+        },
+        {
+          "text": "Fulbright fellow, Cornell University, USA<span class=\"fact-sub\">Host: Prof. Debanjan Chowdhury</span>",
+          "when": "2023 &ndash; 2025"
+        },
+        {
+          "text": "PhD in Physics, IIT Kanpur<span class=\"fact-sub\">Advisors: Prof. Arijit Kundu, Prof. Avinash Singh</span>",
+          "when": "2019 &ndash; 2025"
+        },
+        {
+          "text": "MSc in Physics, IIT Kanpur<span class=\"fact-sub\">Advisor: Prof. Arijit Kundu</span>",
+          "when": "2017 &ndash; 2019"
+        },
+        {
+          "text": "BSc in Physics, Ramakrishna Mission Vivekananda Centenary College, Kolkata<span class=\"fact-sub\">Summa cum laude, gold medal</span>",
+          "when": "2014 &ndash; 2017"
+        }
       ]
     },
     {
       "heading": "Selected Honours",
       "items": [
-        {"text": "Invited scientist, Falling Walls Science Summit, Berlin", "when": "2026"},
-        {"text": "Humboldt Research Fellowship, Alexander von Humboldt Foundation", "when": "2025"},
-        {"text": "Fulbright Fellowship, U.S. Department of State", "when": "2023"},
-        {"text": "Junior Research Fellowship, CSIR, Government of India (All India Rank 7)", "when": "2019"},
-        {"text": "Academic Excellence Award, IIT Kanpur", "when": "2018"},
-        {"text": "National Graduate Physics Examination, All India Rank 1", "when": "2017"},
-        {"text": "Cultvision essay competition, first prize, Indian Association for the Cultivation of Science", "when": "2017"}
+        {
+          "text": "Invited scientist, Falling Walls Science Summit, Berlin",
+          "when": "2026"
+        },
+        {
+          "text": "Humboldt Research Fellowship, Alexander von Humboldt Foundation",
+          "when": "2025"
+        },
+        {
+          "text": "Fulbright Fellowship, U.S. Department of State",
+          "when": "2023"
+        },
+        {
+          "text": "Junior Research Fellowship, CSIR, Government of India (All India Rank 7)",
+          "when": "2019"
+        },
+        {
+          "text": "Academic Excellence Award, IIT Kanpur",
+          "when": "2018"
+        },
+        {
+          "text": "National Graduate Physics Examination, All India Rank 1",
+          "when": "2017"
+        },
+        {
+          "text": "Cultvision essay competition, first prize, Indian Association for the Cultivation of Science",
+          "when": "2017"
+        }
       ]
     },
     {
       "heading": "Service",
       "items": [
-        {"text": "Referee for Physical Review Letters and Physical Review B", "when": ""}
+        {
+          "text": "Referee for Physical Review Letters and Physical Review B",
+          "when": ""
+        }
       ]
     }
   ]
