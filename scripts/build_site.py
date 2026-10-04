@@ -315,6 +315,13 @@ def page_links(site: dict, data: dict) -> str:
                 out.append("        </ul>\n")
             out.append("      </section>\n")
             continue
+        if section.get("kind") == "photo":
+            for ph in items:
+                caption = f'<figcaption>{ph["caption"]}</figcaption>' if ph.get("caption") else ""
+                out.append(f'        <figure class="feature-photo">\n          <img src="{esc(ph["src"])}" alt="{esc(ph.get("alt", ""))}" loading="lazy" />\n'
+                           f'          {caption}\n        </figure>\n')
+            out.append("      </section>\n")
+            continue
         if section.get("kind") == "videos":
             out.append('        <div class="video-grid">\n')
             for v in items:
