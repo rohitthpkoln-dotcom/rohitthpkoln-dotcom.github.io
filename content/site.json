@@ -13,7 +13,7 @@
       "position": "center 30%"
     },
     "publications": {
-      "src": "/assets/img/iitk-board.jpg",
+      "src": "/assets/img/cologne-board.jpg",
       "position": "center 40%"
     },
     "talks": {
@@ -98,6 +98,23 @@
         }
       ],
       "kind": "timeline"
+    },
+    {
+      "heading": "Academic Visits",
+      "items": [
+        {
+          "when": "Aug 2026",
+          "text": "Visiting Scientist<span class=\"fact-place\">Free University of Berlin, Germany</span>"
+        },
+        {
+          "when": "Dec 2023",
+          "text": "Visiting Scientist<span class=\"fact-place\">University of California, Riverside, USA</span>"
+        },
+        {
+          "when": "Jul 2023",
+          "text": "Fulbright Pre-Academic Training<span class=\"fact-place\">University of North Carolina, Charlotte, USA</span>"
+        }
+      ]
     },
     {
       "heading": "Selected Honours",

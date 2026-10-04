@@ -226,11 +226,12 @@ b, strong { font-weight: 600; }
 .photo-card {
   margin: 0;
   position: relative;
+  padding: 0 18px 18px 0;         /* room for the offset frame, so it stays inside the column */
 }
 .photo-card::before {             /* offset brass frame */
   content: "";
   position: absolute;
-  inset: 18px -18px -18px 18px;
+  inset: 18px 0 0 18px;
   border: 1px solid var(--brass);
   z-index: 0;
 }
