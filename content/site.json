@@ -68,7 +68,7 @@
     "I am currently an Alexander von Humboldt Postdoctoral Fellow at the <a href=\"https://www.thp.uni-koeln.de/\">Institute for Theoretical Physics</a>, University of Cologne, in the group of <a href=\"https://www.thp.uni-koeln.de/trebst/\">Prof. Simon Trebst</a>.",
     "From 2023 to 2025 I was a Fulbright Fellow at <a href=\"https://physics.cornell.edu/\">Cornell University</a>, working with Prof. Debanjan Chowdhury.",
     "I finished my PhD in physics at the <a href=\"https://www.iitk.ac.in/phy/\">Indian Institute of Technology Kanpur</a>, supervised by Prof. Arijit Kundu and Prof. Avinash Singh. Before that, I did my MSc at IIT Kanpur and my BSc at Ramakrishna Mission Vivekananda Centenary College, Kolkata.",
-    "My research interests lie mainly in <b>nonequilibrium quantum many-body physics</b> and the <b>statistical mechanics of quantum error correction</b>. More specifically, I study <i>dynamical freezing and Floquet thermalization</i> in driven quantum systems and superconducting circuits, and <i>Nishimori criticality</i> in Bayesian inference and surface-code decoding."
+    "My research interests lie mainly in <b>nonequilibrium quantum many-body physics</b> and the <b>statistical mechanics of quantum error correction</b>. More specifically, I study how periodic driving can be used to control <i>superconducting quantum processors</i> built from transmon and fluxonium qubits, and <i>Nishimori criticality</i> in Bayesian inference and surface-code decoding."
   ],
   "home_sections": [
     {
@@ -112,7 +112,7 @@
           "when": "2023"
         },
         {
-          "text": "Junior Research Fellowship, CSIR, Government of India (All India Rank 7)",
+          "text": "Junior Research Fellowship, CSIR, Government of India",
           "when": "2019"
         },
         {
@@ -120,12 +120,37 @@
           "when": "2018"
         },
         {
-          "text": "National Graduate Physics Examination, All India Rank 1",
+          "text": "Cultvision essay competition, first prize, Indian Association for the Cultivation of Science",
+          "when": "2017"
+        }
+      ]
+    },
+    {
+      "heading": "National Examinations",
+      "items": [
+        {
+          "text": "National Graduate Physics Examination (NGPE), state topper",
           "when": "2017"
         },
         {
-          "text": "Cultvision essay competition, first prize, Indian Association for the Cultivation of Science",
+          "text": "CSIR-NET Junior Research Fellowship, All India Rank 7",
+          "when": "2019"
+        },
+        {
+          "text": "GATE Physics, All India Rank 11",
+          "when": "2019"
+        },
+        {
+          "text": "JEST Physics, All India Rank 41",
+          "when": "2019"
+        },
+        {
+          "text": "IIT JAM Physics, All India Rank 21",
           "when": "2017"
+        },
+        {
+          "text": "IIT-JEE Advanced, top 1% nationwide",
+          "when": ""
         }
       ]
     },

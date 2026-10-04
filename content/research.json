@@ -5,17 +5,17 @@
   ],
   "topics": [
     {
-      "heading": "Dynamical freezing and Floquet thermalization",
+      "heading": "Driven superconducting circuits and quantum processors",
       "paragraphs": [
-        "A generic periodically driven many-body system absorbs energy from the drive and heats up to infinite temperature. At special values of the drive parameters an emergent, approximately conserved quantity can make this heating extremely slow: the system is dynamically frozen. I study when and why freezing happens, using exactly solvable models of driven chaotic quantum dots, and how thermalization eventually sets in, through instanton processes near the freezing point.",
-        "Freezing is also useful in practice. In superconducting circuits it can arrest chaotic dynamics in transmon arrays and freeze the anharmonicity of a driven qubit (the &ldquo;frozonium&rdquo;), which helps protect quantum information. A review of these ideas, with Debanjan Chowdhury, will appear in the Annual Review of Condensed Matter Physics."
+        "Superconducting quantum processors are built from nonlinear circuits such as transmons and fluxonium qubits. Periodic driving gives a direct handle on these circuits: a well-chosen drive can suppress unwanted dynamics and make the qubits more robust. I study how far this can be pushed, using exactly solvable models together with numerics.",
+        "In arrays of coupled transmons, excitations spread chaotically between neighbouring qubits; I showed that a periodic drive can arrest this chaotic dynamics. In a single driven circuit, the drive can be used to fix the anharmonicity of the qubit (the &ldquo;frozonium&rdquo;), which protects the computational levels. I also study how a driven many-body system eventually absorbs energy from the drive and heats up, since this sets the lifetime of such protected regimes, and I am interested in optimal control of quantum processors."
       ]
     },
     {
       "heading": "Statistical mechanics of quantum error correction",
       "paragraphs": [
         "Optimal decoding of a topological code under noise maps onto a disordered classical spin model. For the toric code with bit-flip errors this is the random-bond Ising model, and the optimal error threshold is the multicritical point on its Nishimori line. The same structure appears in Bayesian inference, where the Nishimori line is the condition that the model used for inference matches the model that produced the data.",
-        "I work on estimating Nishimori thresholds for Bayesian inference and for decoding <i>Z<sub>q</sub></i> surface codes, and, with collaborators in Cologne and Santa Barbara, on learning Potts models and <i>Z</i><sub>3</sub> toric codes, where both ordinary and higher Nishimori criticality appear. I am also interested in optimal control of quantum processors."
+        "I work on estimating Nishimori thresholds for Bayesian inference and for decoding <i>Z<sub>q</sub></i> surface codes, and, with collaborators in Cologne and Santa Barbara, on learning Potts models and <i>Z</i><sub>3</sub> toric codes, where both ordinary and higher Nishimori criticality appear."
       ]
     },
     {
