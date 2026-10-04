@@ -1,0 +1,9 @@
+{
+  "intro": "",
+  "paragraphs": [
+    "My research lies at the intersection of theoretical and numerical approaches to emergent phenomena in quantum many-body systems. I am particularly interested in thermalization, chaos, measurement-induced phase transitions, quantum error correction, and machine learning.",
+    "I use tools including exact diagonalization and tensor network techniques. In earlier work I studied topological transport in quantum magnets and spin liquids, the role of quantum geometry in transport phenomena, and exotic states in Weyl semimetals and topological insulators.",
+    "Across these settings, my work has centred on developing theoretical and numerical tools to understand nonequilibrium quantum dynamics, quantum information, and transport in strongly correlated systems."
+  ],
+  "topics": []
+}
