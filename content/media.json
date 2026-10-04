@@ -29,27 +29,26 @@
       ]
     },
     {
-      "heading": "Videos",
+      "heading": "Preparing for the Humboldt and Fulbright Fellowships",
       "kind": "videos",
       "items": [
         {
           "youtube": "u0PjR2jVTic",
           "start": 16,
-          "title": "YouTube video"
+          "title": "Some Tips for Applying in Alexander von Humboldt (AvH) Postdoctoral Fellowship",
+          "caption": "Some tips for applying for the Alexander von Humboldt (AvH) Postdoctoral Fellowship"
         },
         {
           "youtube": "E3uSQ6Kr_G0",
           "start": 578,
-          "title": "YouTube video"
+          "title": "Fulbright Nehru Doctoral Fellowship Application Tips",
+          "caption": "Fulbright-Nehru Doctoral Fellowship application tips"
         }
-      ]
-    },
-    {
-      "heading": "Social Media",
-      "items": [
+      ],
+      "links": [
         {
           "kind": "Reel",
-          "title": "Reel on Facebook",
+          "title": "Fulbright reel on the U.S. Ambassador's page",
           "url": "https://www.facebook.com/reel/619657096763705",
           "source": "Facebook"
         }
@@ -57,11 +56,59 @@
     },
     {
       "heading": "Favourite Websites",
-      "items": []
-    },
-    {
-      "heading": "Tips",
-      "items": []
+      "kind": "resources",
+      "items": [
+        {
+          "heading": "Exact diagonalization with Python",
+          "items": [
+            {
+              "title": "QuSpin package",
+              "url": "https://quspin.github.io/QuSpin/"
+            }
+          ]
+        },
+        {
+          "heading": "MPO / MPS / DMRG with Julia",
+          "items": [
+            {
+              "title": "ITensor package",
+              "url": "https://itensor.org/"
+            },
+            {
+              "title": "Time-dependent variational principle (TDVP)",
+              "url": "https://github.com/ITensor/ITensorTDVP.jl"
+            }
+          ]
+        },
+        {
+          "heading": "Tensor network theory",
+          "items": [
+            {
+              "title": "A Practical Introduction to Tensor Networks",
+              "url": "https://arxiv.org/abs/1306.2164",
+              "note": "R. Or&uacute;s"
+            }
+          ]
+        },
+        {
+          "heading": "Quantum Toolbox in Python",
+          "items": [
+            {
+              "title": "QuTiP tutorials",
+              "url": "https://qutip.org/qutip-tutorials/"
+            }
+          ]
+        },
+        {
+          "heading": "Analog Hamiltonian simulation with Amazon Braket",
+          "items": [
+            {
+              "title": "Hello AHS: Run your first Analog Hamiltonian Simulation",
+              "url": "https://docs.aws.amazon.com/braket/latest/developerguide/braket-get-started-hello-ahs.html"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
