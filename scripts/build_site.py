@@ -306,6 +306,15 @@ def page_links(site: dict, data: dict) -> str:
         if not items:
             continue
         out.append(f'      <section class="section">\n        <h2>{section["heading"]}</h2>\n')
+        if section.get("kind") == "resources":
+            for group in items:
+                out.append(f'        <h3>{group["heading"]}</h3>\n        <ul class="resource-list">\n')
+                for it in group.get("items", []):
+                    note = f' <span class="entry-meta">{it["note"]}</span>' if it.get("note") else ""
+                    out.append(f'          <li>{link(it["title"], it.get("url", ""))}{note}</li>\n')
+                out.append("        </ul>\n")
+            out.append("      </section>\n")
+            continue
         if section.get("kind") == "videos":
             out.append('        <div class="video-grid">\n')
             for v in items:
@@ -321,6 +330,11 @@ def page_links(site: dict, data: dict) -> str:
                     f'referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>\n'
                     f'            {caption}<p class="entry-links"><span><a href="{watch}">Watch on YouTube</a></span></p>\n          </figure>\n')
             out.append('        </div>\n')
+            extra = section.get("links", [])
+            if extra:
+                rows = [f'        <li class="entry">\n          <p class="entry-title">{pill(it.get("kind", ""))}{link(it["title"], it.get("url", ""))}</p>\n'
+                        f'          <p class="entry-meta">{it.get("source", "")}</p>\n        </li>' for it in extra]
+                out.append('        <ul class="entries video-links">\n' + "\n".join(rows) + '\n        </ul>\n')
         else:
             rows = []
             for it in items:
