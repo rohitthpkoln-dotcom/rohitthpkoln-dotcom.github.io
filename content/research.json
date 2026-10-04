@@ -1,0 +1,40 @@
+{
+  "intro": "",
+  "paragraphs": [
+    "I study quantum many-body systems out of equilibrium, the statistical mechanics behind quantum error correction, and the use of machine learning in physics. Below is a short description of the main directions, with the related papers listed on the <a href=\"/publications/\">Publications</a> page."
+  ],
+  "topics": [
+    {
+      "heading": "Driven superconducting circuits and quantum processors",
+      "paragraphs": [
+        "Superconducting quantum processors are built from nonlinear circuits such as transmons and fluxonium qubits. Periodic driving gives a direct handle on these circuits: a well-chosen drive can suppress unwanted dynamics and make the qubits more robust. I study how far this can be pushed, using exactly solvable models together with numerics.",
+        "In arrays of coupled transmons, excitations spread chaotically between neighbouring qubits; I showed that a periodic drive can arrest this chaotic dynamics. In a single driven circuit, the drive can be used to fix the anharmonicity of the qubit (the &ldquo;frozonium&rdquo;), which protects the computational levels. I also study how a driven many-body system eventually absorbs energy from the drive and heats up, since this sets the lifetime of such protected regimes, and I am interested in optimal control of quantum processors."
+      ]
+    },
+    {
+      "heading": "Statistical mechanics of quantum error correction",
+      "paragraphs": [
+        "Optimal decoding of a topological code under noise maps onto a disordered classical spin model. For the toric code with bit-flip errors this is the random-bond Ising model, and the optimal error threshold is the multicritical point on its Nishimori line. The same structure appears in Bayesian inference, where the Nishimori line is the condition that the model used for inference matches the model that produced the data.",
+        "I work on estimating Nishimori thresholds for Bayesian inference and for decoding <i>Z<sub>q</sub></i> surface codes, and, with collaborators in Cologne and Santa Barbara, on learning Potts models and <i>Z</i><sub>3</sub> toric codes, where both ordinary and higher Nishimori criticality appear."
+      ]
+    },
+    {
+      "heading": "Machine learning for physics",
+      "paragraphs": [
+        "Learning a model from data and decoding a quantum code are both problems of statistical inference, and the Nishimori line is exactly where inference is optimal. This connects my work on error correction to machine learning: I study how well a model can be learned from noisy data, where learning undergoes phase transitions, and how statistical-physics ideas can guide machine-learning approaches to decoding and to quantum many-body problems."
+      ]
+    },
+    {
+      "heading": "Earlier work: magnons, topology and correlated materials",
+      "paragraphs": [
+        "During my PhD I worked on transport of magnons in quantum magnets: the intrinsic nonlinear thermal Hall effect from quantum kinetic theory, nonlinear magnon transport in bilayer van der Waals antiferromagnets, and the thermal Hall signature of a chiral spin model on the honeycomb lattice using Schwinger-boson mean-field theory. Related work includes non-Bloch band theory for boundary-controlled magnon edge modes, the RKKY interaction in Weyl semimetal nanowires, and isospin reorientation in iridate heterostructures."
+      ]
+    },
+    {
+      "heading": "Methods",
+      "paragraphs": [
+        "Exact diagonalization (<a href=\"https://quspin.github.io/QuSpin/\">QuSpin</a>), tensor networks (MPS, MPO, TEBD, TDVP) with <a href=\"https://tenpy.readthedocs.io/\">TeNPy</a> and <a href=\"https://itensor.org/\">ITensor</a>, hybrid Monte Carlo&ndash;tensor-network methods, and <a href=\"https://qutip.org/\">QuTiP</a>. I program in Python, Julia, C++ and Mathematica."
+      ]
+    }
+  ]
+}

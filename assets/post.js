@@ -162,7 +162,7 @@ const renderPost = async () => {
     const protectedMarkdown = protectMarkdown(body);
     const rendered = window.marked.parse(protectedMarkdown.markdown);
 
-    document.title = `${metadata.title || "Untitled note"} | Rohit's Notebook`;
+    document.title = `${metadata.title || "Untitled note"} | Rohit Mukherjee`;
 
     if (titleNode) {
       titleNode.textContent = metadata.title || "Untitled note";

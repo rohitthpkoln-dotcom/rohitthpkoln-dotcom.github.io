@@ -1,0 +1,108 @@
+{
+  "intro": "* denotes equal contribution. Listed most recent first within each topic.",
+  "in_preparation": [],
+  "sections": [
+    {
+      "heading": "Nonequilibrium Quantum Dynamics",
+      "entries": [
+        {
+          "title": "Dynamical Freezing in Driven Quantum Matter",
+          "authors": "<b>R. Mukherjee</b> and D. Chowdhury.",
+          "journal": "Annual Review of Condensed Matter Physics (invited article, 2027)",
+          "url": "https://www.annualreviews.org/content/journals/conmatphys"
+        },
+        {
+          "title": "Frozonium: Freezing anharmonicity in Floquet superconducting circuits",
+          "authors": "K. Lewellen, <b>R. Mukherjee</b>*, H. Guo*, S. Roy, V. Fatemi, D. Chowdhury.",
+          "journal": "Newton 2, 100434 (2026)",
+          "url": "https://scholar.google.com/scholar?q=%22Frozonium%3A%20Freezing%20anharmonicity%20in%20Floquet%20superconducting%20circuits%22"
+        },
+        {
+          "title": "Floquet thermalization via instantons near dynamical freezing",
+          "authors": "<b>R. Mukherjee</b>*, H. Guo*, D. Chowdhury.",
+          "journal": "Phys. Rev. X 16, 011041 (2026)",
+          "note": "Featured in Phys.org: &ldquo;Dynamical freezing can protect quantum information for near-cosmic timescales.&rdquo;",
+          "url": "https://scholar.google.com/scholar?q=%22Floquet%20thermalization%20via%20instantons%20near%20dynamical%20freezing%22"
+        },
+        {
+          "title": "Dynamical freezing in exactly solvable models of driven chaotic quantum dots",
+          "authors": "H. Guo, <b>R. Mukherjee</b>, D. Chowdhury.",
+          "journal": "Phys. Rev. Lett. 134, 226501 (2025)",
+          "url": "https://scholar.google.com/scholar?q=%22Dynamical%20freezing%20in%20exactly%20solvable%20models%20of%20driven%20chaotic%20quantum%20dots%22"
+        },
+        {
+          "title": "Arresting quantum chaos dynamically in transmon arrays",
+          "authors": "<b>R. Mukherjee</b>*, H. Guo*, K. Lewellen, D. Chowdhury.",
+          "journal": "Newton 1, 100011 (2025)",
+          "url": "https://scholar.google.com/scholar?q=%22Arresting%20quantum%20chaos%20dynamically%20in%20transmon%20arrays%22"
+        }
+      ]
+    },
+    {
+      "heading": "Quantum Error Correction and Statistical Mechanics",
+      "entries": [
+        {
+          "title": "Learning Potts models and <i>Z</i><sub>3</sub> toric codes: higher and ordinary Nishimori criticality",
+          "authors": "R. A. Patil, <b>R. Mukherjee</b>*, M. P&uuml;tz*, G.-Y. Zhu, S. Trebst, A. W. W. Ludwig.",
+          "date": "2026.",
+          "arxiv": "2608.20268",
+          "url": "https://arxiv.org/abs/2608.20268"
+        },
+        {
+          "title": "Nishimori threshold estimation for Bayesian inference and <i>Z<sub>q</sub></i> surface-code decoding",
+          "authors": "<b>R. Mukherjee</b> and S. Trebst.",
+          "date": "2026.",
+          "arxiv": "2607.18374",
+          "url": "https://arxiv.org/abs/2607.18374"
+        }
+      ]
+    },
+    {
+      "heading": "Magnons, Topology and Correlated Materials",
+      "entries": [
+        {
+          "title": "Non-Bloch band theory of boundary-controlled magnon edge modes in an antiferromagnetic chain",
+          "authors": "S. Debnath, S. Verma, <b>R. Mukherjee</b>, A. Kundu.",
+          "date": "2026.",
+          "arxiv": "2606.09267",
+          "url": "https://arxiv.org/abs/2606.09267"
+        },
+        {
+          "title": "RKKY interaction in Weyl semimetal nanowires",
+          "authors": "<b>R. Mukherjee</b> and A. Dubey.",
+          "date": "2025.",
+          "arxiv": "2510.10589",
+          "url": "https://arxiv.org/abs/2510.10589"
+        },
+        {
+          "title": "Intrinsic nonlinear thermal Hall transport of magnons: a quantum kinetic theory approach",
+          "authors": "H. Varshney*, <b>R. Mukherjee</b>*, A. Kundu, A. Agarwal.",
+          "journal": "Phys. Rev. B 108, 165412 (2023)",
+          "doi": "10.1103/PhysRevB.108.165412",
+          "url": "https://doi.org/10.1103/PhysRevB.108.165412"
+        },
+        {
+          "title": "Nonlinear magnon transport in bilayer van der Waals antiferromagnets",
+          "authors": "<b>R. Mukherjee</b>, S. Verma, A. Kundu.",
+          "journal": "Phys. Rev. B 107, 245426 (2023)",
+          "doi": "10.1103/PhysRevB.107.245426",
+          "url": "https://doi.org/10.1103/PhysRevB.107.245426"
+        },
+        {
+          "title": "Schwinger-boson mean-field study of the spin <i>J</i><sub>1</sub>&ndash;<i>J</i><sub>2</sub>&ndash;<i>J</i><sub>&chi;</sub> model on the honeycomb lattice: thermal Hall signature",
+          "authors": "<b>R. Mukherjee</b>, R. Kundu, A. Singh, A. Kundu.",
+          "journal": "Phys. Rev. B 107, 155122 (2023)",
+          "doi": "10.1103/PhysRevB.107.155122",
+          "url": "https://doi.org/10.1103/PhysRevB.107.155122"
+        },
+        {
+          "title": "Octahedral tilting induced isospin reorientation transition in iridate heterostructures",
+          "authors": "S. Mohapatra, S. Aditya, <b>R. Mukherjee</b>, A. Singh.",
+          "journal": "Phys. Rev. B 100, 140409(R) (2019)",
+          "doi": "10.1103/PhysRevB.100.140409",
+          "url": "https://doi.org/10.1103/PhysRevB.100.140409"
+        }
+      ]
+    }
+  ]
+}

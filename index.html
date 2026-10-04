@@ -4,72 +4,89 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rohit Mukherjee</title>
-    <meta
-      name="description"
-      content="Research notes and calculations by Rohit Mukherjee."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Literata:opsz,wght@7..72,400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./assets/site.css" />
-    <script type="module" src="./assets/home.js"></script>
+    <meta name="description" content="Rohit Mukherjee, Alexander von Humboldt postdoctoral fellow at the Institute for Theoretical Physics, University of Cologne. Nonequilibrium quantum many-body physics and statistical mechanics of quantum error correction." />
+    <link href="/assets/fonts/fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/site.css" />
   </head>
-  <body class="home-page">
-    <div class="page-glow page-glow-left"></div>
-    <div class="page-glow page-glow-right"></div>
-    <div class="site-frame">
-      <header class="topbar">
-        <a class="brand" href="./index.html">Rohit Mukherjee</a>
+  <body class="has-hero">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="/">Rohit Mukherjee</a>
+        <input class="nav-toggle" id="nav-toggle" type="checkbox" />
+        <label class="nav-toggle-label" for="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></label>
         <nav class="topnav" aria-label="Primary">
-          <a href="#posts">Notes</a>
+          <a href="/" aria-current="page">Home</a>
+          <a href="/research/">Research</a>
+          <a href="/publications/">Publications</a>
+          <a href="/talks/">Talks</a>
+          <a href="/teaching/">Teaching</a>
+          <a href="/conferences/">Conferences</a>
+          <a href="/notes/">Notes</a>
         </nav>
-      </header>
+      </div>
+    </header>
+    <section class="banner banner-home" style="background-image: url('/assets/img/blackboard.jpg'); background-size: cover; background-position: center 60%">
+      <div class="banner-inner">
+        <h1>Rohit Mukherjee</h1>
+        <p class="banner-sub">Theoretical physicist &middot; University of Cologne</p>
+      </div>
+    </section>
+    <main class="page">
+      <div class="home-grid section">
+        <div class="prose">
+          <p>I am currently an Alexander von Humboldt Postdoctoral Fellow at the <a href="https://www.thp.uni-koeln.de/">Institute for Theoretical Physics</a>, <a href="https://www.uni-koeln.de/">University of Cologne</a>, in the group of Prof. <a href="https://www.thp.uni-koeln.de/trebst/">Simon Trebst</a>.</p>
+          <p>From 2023 to 2025 I was a Fulbright Fellow at <a href="https://physics.cornell.edu/">Cornell University</a>, working with Prof. <a href="https://physics.cornell.edu/debanjan-chowdhury">Debanjan Chowdhury</a>.</p>
+          <p>I finished my PhD in physics at the <a href="https://www.iitk.ac.in/phy/">Indian Institute of Technology Kanpur</a>, supervised by Prof. <a href="https://home.iitk.ac.in/~kundua/">Arijit Kundu</a> and Prof. <a href="https://home.iitk.ac.in/~avinas/">Avinash Singh</a>. Before that, I did my MSc at <a href="https://www.iitk.ac.in/">IIT Kanpur</a> and my BSc at <a href="https://www.rkmvccrahara.org/">Ramakrishna Mission Vivekananda Centenary College</a>, Kolkata.</p>
+          <p>My research interests lie mainly in <b>nonequilibrium quantum many-body physics</b> and the <b>statistical mechanics of quantum error correction</b>. More specifically, I study how periodic driving can be used to control <i>superconducting quantum processors</i> built from transmon and fluxonium qubits, <i>Nishimori criticality</i> in Bayesian inference and surface-code decoding, and the use of <i>machine learning</i> in physics.</p>
+          <div class="icon-row"><a href="mailto:rmukher3@uni-koeln.de" title="Email" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a><a href="https://github.com/rohitthpkoln-dotcom" title="GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg></a></div>
+        </div>
+        <figure class="photo-card" style="margin:0"><img src="/assets/img/portrait.jpg" alt="Photo of Rohit Mukherjee" /></figure>
+      </div>
+      <section class="section">
+        <h2>Positions and Education</h2>
+        <ul class="facts timeline">
+          <li class="is-current"><span class="fact-when">2025 &ndash; now</span><span class="tl-dot" aria-hidden="true"></span><span class="fact-text">Humboldt Postdoctoral Fellow<span class="fact-place"><a href="https://www.uni-koeln.de/">University of Cologne</a>, Germany</span><span class="fact-sub">Group of Prof. <a href="https://www.thp.uni-koeln.de/trebst/">Simon Trebst</a></span></span></li>
+          <li><span class="fact-when">2023 &ndash; 2025</span><span class="tl-dot" aria-hidden="true"></span><span class="fact-text">Fulbright Fellow<span class="fact-place"><a href="https://www.cornell.edu/">Cornell University</a>, USA</span><span class="fact-sub">With Prof. <a href="https://physics.cornell.edu/debanjan-chowdhury">Debanjan Chowdhury</a></span></span></li>
+          <li><span class="fact-when">2019 &ndash; 2025</span><span class="tl-dot" aria-hidden="true"></span><span class="fact-text">PhD in Physics<span class="fact-place"><a href="https://www.iitk.ac.in/">IIT Kanpur</a>, India</span><span class="fact-sub">Advisors: Prof. <a href="https://home.iitk.ac.in/~kundua/">Arijit Kundu</a> and Prof. <a href="https://home.iitk.ac.in/~avinas/">Avinash Singh</a></span></span></li>
+          <li><span class="fact-when">2017 &ndash; 2019</span><span class="tl-dot" aria-hidden="true"></span><span class="fact-text">MSc in Physics<span class="fact-place"><a href="https://www.iitk.ac.in/">IIT Kanpur</a>, India</span><span class="fact-sub">Advisor: Prof. <a href="https://home.iitk.ac.in/~kundua/">Arijit Kundu</a></span></span></li>
+          <li><span class="fact-when">2014 &ndash; 2017</span><span class="tl-dot" aria-hidden="true"></span><span class="fact-text">BSc in Physics<span class="fact-place"><a href="https://www.rkmvccrahara.org/">Ramakrishna Mission Vivekananda Centenary College</a>, Kolkata</span><span class="fact-sub">Summa cum laude, gold medal</span></span></li>
+        </ul>
+      </section>
+      <section class="section">
+        <h2>Selected Honours</h2>
+        <ul class="facts">
+          <li><span class="fact-when">2026</span><span class="fact-text"><a class="fact-link" href="https://falling-walls.com/">Invited scientist</a><span class="fact-place">Falling Walls Science Summit, Berlin</span></span></li>
+          <li><span class="fact-when">2025</span><span class="fact-text"><a class="fact-link" href="https://www.humboldt-foundation.de/en/apply/sponsorship-programmes/humboldt-research-fellowship">Humboldt Research Fellowship</a><span class="fact-place">Alexander von Humboldt Foundation</span></span></li>
+          <li><span class="fact-when">2023</span><span class="fact-text"><a class="fact-link" href="https://fulbrightprogram.org/">Fulbright Fellowship</a><span class="fact-place">U.S. Department of State</span></span></li>
+          <li><span class="fact-when">2019</span><span class="fact-text"><a class="fact-link" href="https://csirhrdg.res.in/">Junior Research Fellowship</a><span class="fact-place">CSIR, Government of India</span></span></li>
+          <li><span class="fact-when">2018</span><span class="fact-text"><a class="fact-link" href="https://www.iitk.ac.in/">Academic Excellence Award</a><span class="fact-place"><a href="https://www.iitk.ac.in/">IIT Kanpur</a></span></span></li>
+          <li><span class="fact-when">2017</span><span class="fact-text"><a class="fact-link" href="https://iacs.res.in/">Cultvision Essay Competition, first prize</a><span class="fact-place">Indian Association for the Cultivation of Science</span></span></li>
+        </ul>
+      </section>
+      <section class="section">
+        <h2>National Examinations</h2>
+        <ul class="facts">
+          <li><span class="fact-when">2019</span><span class="fact-text">CSIR-NET Junior Research Fellowship<span class="fact-place">All India Rank 7</span></span></li>
+          <li><span class="fact-when">2019</span><span class="fact-text">GATE Physics<span class="fact-place">All India Rank 11</span></span></li>
+          <li><span class="fact-when">2019</span><span class="fact-text">JEST Physics<span class="fact-place">All India Rank 41</span></span></li>
+          <li><span class="fact-when">2017</span><span class="fact-text">National Graduate Physics Examination (NGPE)<span class="fact-place">State topper</span></span></li>
+          <li><span class="fact-when">2017</span><span class="fact-text">IIT JAM Physics<span class="fact-place">All India Rank 21</span></span></li>
+          <li><span class="fact-when"></span><span class="fact-text">IIT-JEE Advanced<span class="fact-place">Top 1% nationwide</span></span></li>
+        </ul>
+      </section>
+      <section class="section">
+        <h2>Service</h2>
+        <ul class="facts">
+          <li><span class="fact-when"></span><span class="fact-text">Referee<span class="fact-place">Physical Review Letters and Physical Review B</span></span></li>
+        </ul>
+      </section>
+    </main>
 
-      <main>
-        <section class="hero">
-          <div class="hero-copy panel">
-            <h1>Rohit Mukherjee</h1>
-            <p class="lede">
-              I am an Alexander von Humboldt postdoctoral fellow at the Institute of Theoretical
-              Physics, University of Cologne, where I work in Simon Trebst's group on
-              computational condensed matter physics. I completed my PhD at IIT Kanpur under the
-              supervision of Arijit Kundu and Avinash Singh, and during 2023-2025 I was a
-              Fulbright fellow at Cornell in Debanjan Chowdhury's group.
-            </p>
-            <p class="lede">
-              My research lies at the intersection of theoretical and numerical approaches to
-              emergent phenomena in quantum many-body systems. I am particularly interested in
-              thermalization, chaos, measurement-induced phase transitions, quantum error
-              correction, and machine learning. I use tools including exact diagonalization and
-              tensor network techniques, and in earlier work I studied topological transport in
-              quantum magnets and spin liquids, the role of quantum geometry in transport
-              phenomena, and exotic states in Weyl semimetals and topological insulators.
-            </p>
-            <p class="lede">
-              I have also been a visiting student at ICTP in Trieste and at UC Riverside in Ran
-              Cheng's group, and I serve as an active referee and member of the American Physical
-              Society. Across these settings, my work has centered on developing theoretical and
-              numerical tools to understand nonequilibrium quantum dynamics, quantum information,
-              and transport in strongly correlated systems.
-            </p>
-          </div>
-        </section>
-
-        <section class="section-heading" id="posts">
-          <div>
-            <h2>Notes</h2>
-          </div>
-        </section>
-
-        <section class="posts-grid" data-post-grid>
-          <article class="post-card post-card-placeholder">
-            <p>Loading posts...</p>
-          </article>
-        </section>
-      </main>
-    </div>
+    <footer class="footer">
+      <div class="footer-inner">
+        <span>&copy; 2026 Rohit Mukherjee</span>
+        <span>Institute for Theoretical Physics, University of Cologne</span>
+      </div>
+    </footer>
   </body>
 </html>
